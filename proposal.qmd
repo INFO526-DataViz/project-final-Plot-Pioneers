@@ -1,26 +1,69 @@
 ---
-title: "Proposal title"
-subtitle: "Proposal"
+title: "World Happiness report"
+subtitle: "A Journey through World Happiness:)"
 format: html
 editor: visual
 ---
 
-```{r}
+```{r, echo=FALSE, results='hide'}
 #| label: load-pkgs
 #| message: false
-library(tidyverse)
+#| warning: false
+#| output: false
+#| code-fold: true
+#| code-summary: "Installed Packages"
+### GETTING THE LIBRARIES
+if (!require(pacman))
+  install.packages(pacman)
+
+pacman::p_load(tidyverse,
+               formattable,
+               dlookr,
+               readxl,
+               writexl)
 ```
+
+## Introduction
+
+"Are you happy?" Despite being a straightforward question, philosophers, artists, and scientists have been captivated by it for millennia. We take a wonderful tour through the World Happiness Report dataset in our quest to discover what makes people truly happy around the world. This proposal describes how we want to investigate and examine this interesting dataset, which runs from 2015 to 2023. This project attempts to solve the puzzles of happiness in a playful and interesting way. Happiness is a universal quest.
 
 ## Dataset
 
-```{r}
+### Dataset Description
+
+We are excited to embark on a journey to explore the [World Happiness Report dataset](https://worldhappiness.report/data/), encompassing the years 2015 to 2023. This engaging and illuminating dataset offers a unique glimpse into the factors influencing global happiness and well-being. Let's dive into the details of our chosen dataset:
+
+The World Happiness Report dataset is sourced directly from the official [World Happiness Report website](https://worldhappiness.report/). This esteemed report is published annually by the United Nations, offering insights into the state of happiness and well-being across countries. The dataset is meticulously compiled, verified, and updated each year, making it a reliable source for our analysis.
+
+### Dimensions
+
+The dataset consists of a multidimensional treasure trove of information, including but not limited to:
+
+\- Year: A temporal dimension spanning from 2015 to 2023, allowing us to track changes over time.
+
+\- Country: Covering numerous countries around the world, each providing a unique perspective.
+
+\- Happiness Score: A quantitative measure of happiness, serving as the dependent variable.
+
+\- Economic, Social, and Environmental Indicators: Including GDP per capita, social support, life expectancy, and more.
+
+\- Freedom, Corruption, and Generosity Metrics: Providing insights into the cultural and governance aspects influencing happiness.
+
+\- Dystopia Residual: A reference point for low happiness, helping us gauge relative happiness scores.
+
+### Reason for Choosing this Dataset
+
+The World Happiness Report dataset offers a perfect blend of intriguing questions and meaningful insights. By exploring this dataset, we aim to understand the factors that contribute to happiness and well-being across diverse societies. Furthermore, we chose this dataset for the following reasons:
+
+1\. Global Relevance: Happiness is a fundamental aspect of human well-being, and this dataset provides a unique perspective on happiness trends worldwide. Our analysis can offer insights into what makes societies and individuals happy, transcending borders and cultures.
+
+2\. Temporal Insights: The dataset covers a wide range of years, enabling us to track happiness trends and identify potential causative factors over time. This temporal dimension adds depth to our analysis.
+
+```{r, echo=TRUE, results='hide'}
 #| label: load-dataset
 #| message: false
+
 ```
-
-A brief description of your dataset including its provenance, dimensions, etc. as well as the reason why you chose this dataset.
-
-Make sure to load the data and use inline code for some of this information.
 
 ## Questions
 
