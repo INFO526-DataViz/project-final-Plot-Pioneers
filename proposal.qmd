@@ -67,11 +67,15 @@ The World Happiness Report dataset offers a perfect blend of intriguing question
 
 ## Questions
 
-The two questions you want to answer.
+1.  How do various factors contribute to the overall happiness score across different countries over the years?
 
 ## Analysis plan
 
--   A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).
+-   **Approach for Question 1**
+
+    The different factors involved are as follows : economy ("GDP per capita"), family ("social support"), health("healthy life expectancy at birth"), freedom ("freedom to make life choices"), trust("perceptions of corruption") and genorosity ("genorosity").
+
+    To explore how various factors contribute to the overall happiness score across different countries over the years, we have designed an interactive analysis where users can select a specific year and country from drop-down menus, allowing for a dynamic and personalized exploration of the data. We are planning to create a bar chart where the x-axis represents the factors (independent variables), and the y-axis represents their contribution to the overall happiness score. For better visulaization we are planning to choose a Grouped Bar chart, where separate bars represents each factor, and their heights represent their contributions to the overall happiness score. This chart provides a side-by-side comparison of each factor's contribution. We are planning to expand the analysis by incorporating a stacked bar plot to gain more comprehensive visualization.
 
 ## Plan of Attack
 
@@ -143,7 +147,7 @@ The two questions you want to answer.
 
 #### Week 8: (Dec 4 - Dec11) \[Everyone\]
 
-#### *Finalization and Presentation* 
+#### *Finalization and Presentation*
 
 -   *Tasks:*
     -   Make any final refinements to the application.
