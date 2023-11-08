@@ -21,9 +21,11 @@ pacman::p_load(tidyverse, dplyr)
 
 ## High-level Goal
 
-## Goal
+To create an interactive Shiny app that visualizes and analyzes the World Happiness Report data, enabling users to explore and understand the factors that contribute to happiness worldwide.
 
-## Motivation
+## Goal and Motivation
+
+Our primary goal with this project is to develop an interactive shiny application that makes the complex data from the World Happiness Report accessible and engaging for a wide audience. The World Happiness Report is a valuable resource that provides insights into the well-being and happiness of people in various countries, but the data can be overwhelming and challenging to interpret. We aim to simplify this process by building an intuitive and user-friendly app that offers a dynamic visual representation of the data. Our motivation for this project is to bridge the gap between valuable but complex data and the end-users who seek to understand it. We believe that by creating an interactive Shiny app for the World Happiness Report, we can empower individuals, researchers, and policymakers to explore and gain insights into global happiness, contributing to a better understanding of well-being and, potentially, to informed decisions that can improve the quality of life for people around the world.
 
 ## Introduction
 
