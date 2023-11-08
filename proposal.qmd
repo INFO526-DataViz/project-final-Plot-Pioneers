@@ -23,6 +23,12 @@ pacman::p_load(tidyverse,
                writexl)
 ```
 
+## High-level Goal
+
+## Goal
+
+## Motivation
+
 ## Introduction
 
 "Are you happy?" Despite being a straightforward question, philosophers, artists, and scientists have been captivated by it for millennia. We take a wonderful tour through the World Happiness Report dataset in our quest to discover what makes people truly happy around the world. This proposal describes how we want to investigate and examine this interesting dataset, which runs from 2015 to 2023. This project attempts to solve the puzzles of happiness in a playful and interesting way. Happiness is a universal quest.
@@ -68,6 +74,7 @@ The World Happiness Report dataset offers a perfect blend of intriguing question
 ## Questions
 
 1.  How do various factors contribute to the overall happiness score across different countries over the years?
+2.  
 
 ## Analysis plan
 
@@ -153,3 +160,13 @@ The World Happiness Report dataset offers a perfect blend of intriguing question
     -   Make any final refinements to the application.
     -   Complete the write-up or documentation.
     -   Prepare a presentation for the project.
+
+## Repo Organisation
+
+1.  '\_extra/': Serves as a repository for informal materials, notes, experimental content, and other items not directly related to the project but retained for potential future reference, without undergoing formal review or grading.
+2.  '\_freeze/': Reserved for storing generated files during the build process, representing the static state of the website at a specific point in time.
+3.  '\_site/': Used to contain the static website files generated after processing the quarto document.
+4.  '.github/': Folder for organizing GitHub templates and workflows.
+5.  'data/': Reserved for storing essential data files used in the project, such as input csv files.
+6.  'images/': Dedicated to housing image files utilized within the project or generated images.
+7.  'presentation_files/': Designated folder for managing files related to presentations.
