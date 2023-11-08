@@ -461,8 +461,6 @@ write.csv(happiness_all_years_df, file = "data/happiness_all_years_df.csv")
 
     Analysis and Reporting: Note regional happiness shifts and anomalies. Combine statistical results and visual insights. Conclude on the link between pandemic and happiness scores, considering data limits.
 
-    \
-
 ## Plan of Attack
 
 #### Week 1: (Oct 16 - Oct 22) \[Everyone\]

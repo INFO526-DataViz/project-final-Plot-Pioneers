@@ -243,7 +243,7 @@ $ Year                            &lt;dbl&gt; 2015, 2015, 2015, 2015, 2015, 2015
 <h2 class="anchored" data-anchor-id="questions">Questions</h2>
 <ol type="1">
 <li>How do various factors contribute to the overall happiness score across different countries over the years?</li>
-<li></li>
+<li>Can we identify patterns of change in happiness scores related to global events such as the COVID-19 pandemic?</li>
 </ol>
 </section>
 <section id="analysis-plan" class="level2">
@@ -252,6 +252,23 @@ $ Year                            &lt;dbl&gt; 2015, 2015, 2015, 2015, 2015, 2015
 <li><p><strong>Approach for Question 1</strong></p>
 <p>The different factors involved are as follows : economy (“GDP per capita”), family (“social support”), health(“healthy life expectancy at birth”), freedom (“freedom to make life choices”), trust(“perceptions of corruption”) and genorosity (“genorosity”).</p>
 <p>To explore how various factors contribute to the overall happiness score across different countries over the years, we have designed an interactive analysis where users can select a specific year and country from drop-down menus, allowing for a dynamic and personalized exploration of the data. We are planning to create a bar chart where the x-axis represents the factors (independent variables), and the y-axis represents their contribution to the overall happiness score. For better visulaization we are planning to choose a Grouped Bar chart, where separate bars represents each factor, and their heights represent their contributions to the overall happiness score. This chart provides a side-by-side comparison of each factor’s contribution. We are planning to expand the analysis by incorporating a stacked bar plot to gain more comprehensive visualization.</p></li>
+<li><p><strong>Approach for Question 2</strong></p>
+<p><strong>Variables Involved:</strong></p>
+<p>Year (Data Type: Integer): To identify the annual data points and capture trends over time.</p>
+<p>Country (Data Type: Character): For geographical mapping and comparison between nations.</p>
+<p>Happiness Score and related factors (Data Type: Double): To analyze changes and correlations.</p>
+<p><strong>Variables to be Created:</strong></p>
+<p>Pandemic Period (Data Type: Character): A derived variable indicating pre-pandemic, during-pandemic, and post-pandemic periods.</p>
+<p>Change in Happiness Score (Data Type: Double): The difference in happiness scores from one year to the next.</p>
+<p>Average Change per Period (Data Type: Double): The average change in happiness scores for each period (pre, during, post-pandemic).</p>
+<p><strong>Analysis and Visualization:</strong></p>
+<p>Trend Analysis: Create line graphs to visualize happiness scores over the years, with a clear demarcation of the pandemic period.</p>
+<p>Pandemic Impact: Zoom in on the period of the pandemic to analyze specific shifts or anomalies in happiness trends.</p>
+<p>Correlation and Comparison: Utilize heatmaps to provide a visual correlation matrix between happiness scores and other variables. Conduct statistical tests (like t-tests or ANOVA) to contrast the differences in happiness levels across different periods.</p>
+<p>Causality and Control: Implement a causal analysis, such as difference-in-differences, to evaluate the pandemic’s impact on happiness while controlling for other variables like GDP per capita.</p>
+<p>Visualizations: Develop visualizations that highlight the onset of the pandemic, using markers or shaded areas on the line graphs. Create scatter plots and box plots to compare happiness against other variables across different timeframes.</p>
+<p>Shiny App Features: Intuitive UI guiding through data and findings. Reactive visuals that update with user input. Interactive elements like sliders and drop downs for custom analyses.</p>
+<p>Analysis and Reporting: Note regional happiness shifts and anomalies. Combine statistical results and visual insights. Conclude on the link between pandemic and happiness scores, considering data limits.</p></li>
 </ul>
 </section>
 <section id="plan-of-attack" class="level2">
