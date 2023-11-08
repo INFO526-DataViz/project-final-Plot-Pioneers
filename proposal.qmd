@@ -16,11 +16,7 @@ editor: visual
 if (!require(pacman))
   install.packages(pacman)
 
-pacman::p_load(tidyverse,
-               formattable,
-               dlookr,
-               readxl,
-               writexl)
+pacman::p_load(tidyverse, dplyr)
 ```
 
 ## High-level Goal
@@ -43,19 +39,69 @@ The World Happiness Report dataset is sourced directly from the official [World 
 
 ### Dimensions
 
-The dataset consists of a multidimensional treasure trove of information, including but not limited to:
+Multiple annual observations, varying from 149 to 158 countries per year.
 
-\- Year: A temporal dimension spanning from 2015 to 2023, allowing us to track changes over time.
+Common variables across dataset:
 
-\- Country: Covering numerous countries around the world, each providing a unique perspective.
+**Country:**
 
-\- Happiness Score: A quantitative measure of happiness, serving as the dependent variable.
+Data Type: Character (chr)
 
-\- Economic, Social, and Environmental Indicators: Including GDP per capita, social support, life expectancy, and more.
+Description: The name of the country for which the happiness metrics are recorded.
 
-\- Freedom, Corruption, and Generosity Metrics: Providing insights into the cultural and governance aspects influencing happiness.
+**Happiness Rank:**
 
-\- Dystopia Residual: A reference point for low happiness, helping us gauge relative happiness scores.
+Data Type: Integer (int)
+
+Description: The rank of the country is based on its happiness score.
+
+**Happiness Score:**
+
+Data Type: Double (dbl)
+
+Description: The score that quantifies the happiness level, is based on various factors such as GDP per capita, social support, life expectancy, freedom to make life choices, generosity, and perceptions of corruption.
+
+**GDP per Capita:**
+
+Data Type: Double (dbl)
+
+Description: A measure of the country's economic output that accounts for its population.
+
+**Family:**
+
+Data Type: Double (dbl)
+
+Description: The degree to which social support is provided in the country, reflecting family ties or community support.
+
+**Health (Life Expectancy):**
+
+Data Type: Double (dbl)
+
+Description: Average life expectancy in the country, indicating the overall health of the population.
+
+**Freedom:**
+
+Data Type: Double (dbl)
+
+Description: The level of freedom citizens have to make life choices in the country.
+
+**Trust (Government Corruption):**
+
+Data Type: Double (dbl) 
+
+Description: The level of trust in the country's government and the perceived amount of corruption.
+
+**Generosity:**
+
+Data Type: Double (dbl)
+
+Description: The average level of generosity of the country's citizens.
+
+**Dystopia Residual:**
+
+Data Type: Double (dbl)
+
+Description: A hypothetical measure that accounts for the unexplained components of happiness from the six factors evaluated.
 
 ### Reason for Choosing this Dataset
 
@@ -65,9 +111,306 @@ The World Happiness Report dataset offers a perfect blend of intriguing question
 
 2\. Temporal Insights: The dataset covers a wide range of years, enabling us to track happiness trends and identify potential causative factors over time. This temporal dimension adds depth to our analysis.
 
-```{r, echo=TRUE, results='hide'}
+### Cleaned Dataset for all Years(2015-2023)
+
+```{r, echo=FALSE, results='hide', warning=FALSE}
 #| label: load-dataset
 #| message: false
+df_2015 <- read.csv("data/2015.csv")
+df_2016 <- read.csv("data/2016.csv")
+df_2017 <- read.csv("data/2017.csv")
+df_2018 <- read.csv("data/2018.csv")
+df_2019 <- read.csv("data/2019.csv")
+df_2020 <- read.csv("data/2020.csv")
+df_2021 <- read.csv("data/2021.csv")
+df_2022 <- read.csv("data/2022.csv")
+df_2023 <- read.csv("data/2023.csv")
+str(df_2015)
+str(df_2016)
+str(df_2017)
+str(df_2018)
+str(df_2019)
+str(df_2020)
+str(df_2021)
+str(df_2022)
+str(df_2023)
+library(dplyr)
+
+
+#2015
+
+# Read CSV files and import into dataframes
+file_1 <- read.csv("data/2015.csv")
+cleaned_2015_df <- file_1
+
+# Clean up the dataframe to rename data and match to all other years
+cleaned_2015_df <- cleaned_2015_df %>%
+  select(-Region) %>%
+  rename(`Happiness Rank` = `Happiness.Rank`,
+    `Happiness Score` = `Happiness.Score`,
+    `GDP per Capita` = `Economy..GDP.per.Capita.`,
+    `Health (Life Expectancy)` = `Health..Life.Expectancy.`,
+    `Trust (Government Corruption)` = `Trust..Government.Corruption.`,
+    `Dystopia Residual` = `Dystopia.Residual`) %>%
+  select(-`Standard.Error`)
+
+# Display the first few rows
+head(cleaned_2015_df)
+write.csv(cleaned_2015_df, file = "data/cleaned_2015_df.csv")
+
+#2016
+
+file_2 <- read.csv("data/2016.csv")
+cleaned_2016_df <- file_2
+
+# Clean up the dataframe to rename data and match to all other years
+cleaned_2016_df <- cleaned_2016_df %>%
+  select(-Region) %>%
+  rename(`Happiness Rank` = `Happiness.Rank`,
+    `Happiness Score` = `Happiness.Score`,
+    `GDP per Capita` = `Economy..GDP.per.Capita.`,
+    `Health (Life Expectancy)` = `Health..Life.Expectancy.`,
+    `Trust (Government Corruption)` = `Trust..Government.Corruption.`,
+    `Dystopia Residual` = `Dystopia.Residual`) %>%
+  select(-`Lower.Confidence.Interval`, -`Upper.Confidence.Interval`)
+
+
+# Display the first few rows
+head(cleaned_2016_df)
+write.csv(cleaned_2016_df, file = "data/cleaned_2016_df.csv")
+
+#2017
+
+file_3 <- read.csv("data/2017.csv")
+cleaned_2017_df <- file_3
+
+# Clean up the dataframe to rename data and match to all other years
+cleaned_2017_df <- cleaned_2017_df %>%
+  rename(
+    `Happiness Rank` = `Happiness.Rank`,
+    `Happiness Score` = `Happiness.Score`,
+    `GDP per Capita` = `Economy..GDP.per.Capita.`,
+    `Health (Life Expectancy)` = `Health..Life.Expectancy.`,
+    `Trust (Government Corruption)` = `Trust..Government.Corruption.`,
+    `Dystopia Residual` = `Dystopia.Residual`
+  ) %>%
+  select(-`Whisker.high`, -`Whisker.low`)
+
+# Display the first few rows
+head(cleaned_2017_df)
+write.csv(cleaned_2017_df, file = "data/cleaned_2017_df.csv")
+
+#2018
+
+file_4 <- read.csv("data/2018.csv")
+cleaned_2018_df <- file_4
+
+# Clean up the dataframe to rename data and match to all other years
+cleaned_2018_df <- cleaned_2018_df %>%
+  rename(
+    `Happiness Rank` = `Overall.rank`,
+    `Country` = `Country.or.region`,
+    `Happiness Score` = `Score`,
+    `GDP per Capita` = `GDP.per.capita`,
+    `Family` = `Social.support`,
+    `Health (Life Expectancy)` = `Healthy.life.expectancy`,
+    `Freedom` = `Freedom.to.make.life.choices`,
+    `Trust (Government Corruption)` = `Perceptions.of.corruption`
+  )
+
+# Assuming we want to convert the 'Happiness.score' column to numeric
+cleaned_2018_df$`Trust (Government Corruption)` <- as.numeric(gsub(",", ".", cleaned_2018_df$`Trust (Government Corruption)`))
+# Display the first few rows
+head(cleaned_2018_df)
+write.csv(cleaned_2018_df, file = "data/cleaned_2018_df.csv")
+
+
+#2019
+
+
+
+file_5 <- read.csv("data/2019.csv")
+cleaned_2019_df <- file_5
+
+# Clean up the dataframe to rename data and match to all other years
+cleaned_2019_df <- cleaned_2019_df %>%
+  rename(
+    `Happiness Rank` = `Overall.rank`,
+    `Country` = `Country.or.region`,
+    `Happiness Score` = `Score`,
+    `GDP per Capita` = `GDP.per.capita`,
+    `Family` = `Social.support`,
+    `Health (Life Expectancy)` = `Healthy.life.expectancy`,
+    `Freedom` = `Freedom.to.make.life.choices`,
+    `Trust (Government Corruption)` = `Perceptions.of.corruption`
+  )
+
+# Display the first few rows
+head(cleaned_2019_df)
+write.csv(cleaned_2019_df, file = "data/cleaned_2019_df.csv")
+
+
+#2020
+
+
+file_6 <- read.csv("data/2020.csv")
+cleaned_2020_df <- file_6
+
+# Clean up the dataframe to rename data and match to all other years
+cleaned_2020_df <- cleaned_2020_df %>%
+  select(-`Generosity`) %>%
+  rename(
+    `Country` = `Country.name`,
+    `Happiness Score` = `Ladder.score`,
+    `GDP per Capita` = `Explained.by..Log.GDP.per.capita`,
+    `Family` = `Explained.by..Social.support`,
+    `Health (Life Expectancy)` = `Explained.by..Healthy.life.expectancy`,
+    `Freedom` = `Explained.by..Freedom.to.make.life.choices`,
+    `Trust (Government Corruption)` = `Explained.by..Perceptions.of.corruption`,
+    `Generosity` = `Explained.by..Generosity`,
+    `Dystopia Residual` = `Dystopia...residual`
+  ) %>%
+  select(-`Regional.indicator`, -`Standard.error.of.ladder.score`, -`upperwhisker`, -`lowerwhisker`,-`Logged.GDP.per.capita`, -`Social.support`, -`Healthy.life.expectancy`, -`Freedom.to.make.life.choices`, -`Perceptions.of.corruption`, -`Ladder.score.in.Dystopia`)
+
+# Add a "Happiness Rank" column after the "Country" column
+cleaned_2020_df <- cleaned_2020_df %>%
+  mutate(`Happiness Rank` = rank(-`Happiness Score`, ties.method = "first")) %>%
+  select(Country, `Happiness Rank`, everything())
+
+#Display the first few rows
+head(cleaned_2020_df)
+write.csv(cleaned_2020_df, file = "data/cleaned_2020_df.csv")
+
+#2021
+
+file_7 <- read.csv("data/2021.csv")
+cleaned_2021_df <- file_7
+
+# Clean up the dataframe to rename data and match to all other years
+cleaned_2021_df <- cleaned_2021_df %>%
+  select(-`Generosity`) %>%
+  rename(
+    `Country` = `Country.name`,
+    `Happiness Score` = `Ladder.score`,
+    `GDP per Capita` = `Explained.by..Log.GDP.per.capita`,
+    `Family` = `Explained.by..Social.support`,
+    `Health (Life Expectancy)` = `Explained.by..Healthy.life.expectancy`,
+    `Freedom` = `Explained.by..Freedom.to.make.life.choices`,
+    `Trust (Government Corruption)` = `Explained.by..Perceptions.of.corruption`,
+    `Generosity` = `Explained.by..Generosity`,
+    `Dystopia Residual` = `Dystopia...residual`
+  ) %>%
+  select(-`Regional.indicator`, -`Standard.error.of.ladder.score`, -`upperwhisker`, -`lowerwhisker`,-`Logged.GDP.per.capita`, -`Social.support`, -`Healthy.life.expectancy`, -`Freedom.to.make.life.choices`, -`Perceptions.of.corruption`, -`Ladder.score.in.Dystopia`)
+
+# Add a "Happiness Rank" column after the "Country" column
+cleaned_2021_df <- cleaned_2021_df %>%
+  mutate(`Happiness Rank` = rank(-`Happiness Score`, ties.method = "first")) %>%
+  select(Country, `Happiness Rank`, everything())
+
+#Display the first few rows
+head(cleaned_2021_df)
+write.csv(cleaned_2021_df, file = "data/cleaned_2021_df.csv")
+
+
+#2022
+
+file_8 <- read.csv("data/2022.csv")
+cleaned_2022_df <- file_8
+
+# Convert only specific columns that contain numbers
+numeric_cols <- c('Happiness.score', 'Explained.by..GDP.per.capita', 'Explained.by..Social.support', 
+                  'Explained.by..Healthy.life.expectancy', 'Explained.by..Freedom.to.make.life.choices', 
+                  'Explained.by..Perceptions.of.corruption', 'Explained.by..Generosity', 
+                  'Dystopia..1.83....residual')
+
+cleaned_2022_df[numeric_cols] <- lapply(cleaned_2022_df[numeric_cols], function(x) {
+  as.numeric(gsub(",", ".", x))
+})
+
+
+# Clean up the dataframe to rename data and match to all other years
+cleaned_2022_df <- cleaned_2022_df %>%
+  rename(
+    `Happiness Rank` = `RANK`,
+    `Happiness Score` = `Happiness.score`,
+    `GDP per Capita` = `Explained.by..GDP.per.capita`,
+    `Family` = `Explained.by..Social.support`,
+    `Health (Life Expectancy)` = `Explained.by..Healthy.life.expectancy`,
+    `Freedom` = `Explained.by..Freedom.to.make.life.choices`,
+    `Trust (Government Corruption)` = `Explained.by..Perceptions.of.corruption`,
+    `Generosity` = `Explained.by..Generosity`,
+    `Dystopia Residual` = `Dystopia..1.83....residual`
+  ) %>%
+  select( -`Whisker.high`, -`Whisker.low`) 
+
+#Display the first few rows
+head(cleaned_2022_df)
+write.csv(cleaned_2022_df, file = "data/cleaned_2022_df.csv")
+
+
+#2023
+
+
+file_9 <- read.csv("data/2023.csv")
+cleaned_2023_df <- file_9
+
+# Clean up the dataframe to rename data and match to all other years
+cleaned_2023_df <- cleaned_2023_df %>%
+  select(-`Generosity`) %>%
+  rename(
+    `Country` = `Country.name`,
+    `Happiness Score` = `Ladder.score`,
+    `GDP per Capita` = `Explained.by..Log.GDP.per.capita`,
+    `Family` = `Explained.by..Social.support`,
+    `Health (Life Expectancy)` = `Explained.by..Healthy.life.expectancy`,
+    `Freedom` = `Explained.by..Freedom.to.make.life.choices`,
+    `Trust (Government Corruption)` = `Explained.by..Perceptions.of.corruption`,
+    `Generosity` = `Explained.by..Generosity`,
+    `Dystopia Residual` = `Dystopia...residual`
+  ) %>%
+  select( -`Standard.error.of.ladder.score`, -`upperwhisker`, -`lowerwhisker`,-`Logged.GDP.per.capita`, -`Social.support`, -`Healthy.life.expectancy`, -`Freedom.to.make.life.choices`, -`Perceptions.of.corruption`, -`Ladder.score.in.Dystopia`)
+
+# Add a "Happiness Rank" column after the "Country" column
+cleaned_2023_df <- cleaned_2023_df %>%
+  mutate(`Happiness Rank` = rank(-`Happiness Score`, ties.method = "first")) %>%
+  select(Country, `Happiness Rank`, everything())
+
+#Display the first few rows
+head(cleaned_2023_df)
+write.csv(cleaned_2023_df, file = "data/cleaned_2023_df.csv")
+
+
+# Add the 'Dystopia Residual' column to the 2018 and 2019 dataframes
+cleaned_2018_df$`Dystopia Residual` <- NA
+cleaned_2019_df$`Dystopia Residual` <- NA
+
+# Adding 'Year' column to each dataframe
+cleaned_2015_df$Year <- 2015
+cleaned_2016_df$Year <- 2016
+cleaned_2017_df$Year <- 2017
+cleaned_2018_df$Year <- 2018
+cleaned_2019_df$Year <- 2019
+cleaned_2020_df$Year <- 2020
+cleaned_2021_df$Year <- 2021
+cleaned_2022_df$Year <- 2022
+cleaned_2023_df$Year <- 2023
+
+```
+
+```{r, echo=FALSE, warning=FALSE}
+# Creating a list of all dataframes for easier handling
+list_of_dfs <- list(cleaned_2015_df, cleaned_2016_df, cleaned_2017_df, cleaned_2018_df, 
+                    cleaned_2019_df, cleaned_2020_df, cleaned_2021_df, cleaned_2022_df, 
+                    cleaned_2023_df)
+
+# Merging all dataframes into one
+happiness_all_years_df <- dplyr::bind_rows(list_of_dfs)
+
+# Check the combined dataframe
+glimpse(happiness_all_years_df)
+
+write.csv(happiness_all_years_df, file = "data/happiness_all_years_df.csv")
+#glimpse(happiness_all_years_df)
 
 ```
 

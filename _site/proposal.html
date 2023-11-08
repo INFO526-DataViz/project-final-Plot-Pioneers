@@ -118,15 +118,21 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#high-level-goal" id="toc-high-level-goal" class="nav-link active" data-scroll-target="#high-level-goal">High-level Goal</a></li>
+  <li><a href="#goal" id="toc-goal" class="nav-link" data-scroll-target="#goal">Goal</a></li>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation">Motivation</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#dataset" id="toc-dataset" class="nav-link" data-scroll-target="#dataset">Dataset</a>
   <ul class="collapse">
   <li><a href="#dataset-description" id="toc-dataset-description" class="nav-link" data-scroll-target="#dataset-description">Dataset Description</a></li>
   <li><a href="#dimensions" id="toc-dimensions" class="nav-link" data-scroll-target="#dimensions">Dimensions</a></li>
   <li><a href="#reason-for-choosing-this-dataset" id="toc-reason-for-choosing-this-dataset" class="nav-link" data-scroll-target="#reason-for-choosing-this-dataset">Reason for Choosing this Dataset</a></li>
+  <li><a href="#cleaned-dataset-for-all-years2015-2023" id="toc-cleaned-dataset-for-all-years2015-2023" class="nav-link" data-scroll-target="#cleaned-dataset-for-all-years2015-2023">Cleaned Dataset for all Years(2015-2023)</a></li>
   </ul></li>
   <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
   <li><a href="#analysis-plan" id="toc-analysis-plan" class="nav-link" data-scroll-target="#analysis-plan">Analysis plan</a></li>
+  <li><a href="#plan-of-attack" id="toc-plan-of-attack" class="nav-link" data-scroll-target="#plan-of-attack">Plan of Attack</a></li>
+  <li><a href="#repo-organisation" id="toc-repo-organisation" class="nav-link" data-scroll-target="#repo-organisation">Repo Organisation</a></li>
   </ul>
 </nav>
     </div>
@@ -151,6 +157,15 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="high-level-goal" class="level2">
+<h2 class="anchored" data-anchor-id="high-level-goal">High-level Goal</h2>
+</section>
+<section id="goal" class="level2">
+<h2 class="anchored" data-anchor-id="goal">Goal</h2>
+</section>
+<section id="motivation" class="level2">
+<h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
+</section>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>“Are you happy?” Despite being a straightforward question, philosophers, artists, and scientists have been captivated by it for millennia. We take a wonderful tour through the World Happiness Report dataset in our quest to discover what makes people truly happy around the world. This proposal describes how we want to investigate and examine this interesting dataset, which runs from 2015 to 2023. This project attempts to solve the puzzles of happiness in a playful and interesting way. Happiness is a universal quest.</p>
@@ -164,13 +179,38 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="dimensions" class="level3">
 <h3 class="anchored" data-anchor-id="dimensions">Dimensions</h3>
-<p>The dataset consists of a multidimensional treasure trove of information, including but not limited to:</p>
-<p>- Year: A temporal dimension spanning from 2015 to 2023, allowing us to track changes over time.</p>
-<p>- Country: Covering numerous countries around the world, each providing a unique perspective.</p>
-<p>- Happiness Score: A quantitative measure of happiness, serving as the dependent variable.</p>
-<p>- Economic, Social, and Environmental Indicators: Including GDP per capita, social support, life expectancy, and more.</p>
-<p>- Freedom, Corruption, and Generosity Metrics: Providing insights into the cultural and governance aspects influencing happiness.</p>
-<p>- Dystopia Residual: A reference point for low happiness, helping us gauge relative happiness scores.</p>
+<p>Multiple annual observations, varying from 149 to 158 countries per year.</p>
+<p>Common variables across dataset:</p>
+<p><strong>Country:</strong></p>
+<p>Data Type: Character (chr)</p>
+<p>Description: The name of the country for which the happiness metrics are recorded.</p>
+<p><strong>Happiness Rank:</strong></p>
+<p>Data Type: Integer (int)</p>
+<p>Description: The rank of the country is based on its happiness score.</p>
+<p><strong>Happiness Score:</strong></p>
+<p>Data Type: Double (dbl)</p>
+<p>Description: The score that quantifies the happiness level, is based on various factors such as GDP per capita, social support, life expectancy, freedom to make life choices, generosity, and perceptions of corruption.</p>
+<p><strong>GDP per Capita:</strong></p>
+<p>Data Type: Double (dbl)</p>
+<p>Description: A measure of the country’s economic output that accounts for its population.</p>
+<p><strong>Family:</strong></p>
+<p>Data Type: Double (dbl)</p>
+<p>Description: The degree to which social support is provided in the country, reflecting family ties or community support.</p>
+<p><strong>Health (Life Expectancy):</strong></p>
+<p>Data Type: Double (dbl)</p>
+<p>Description: Average life expectancy in the country, indicating the overall health of the population.</p>
+<p><strong>Freedom:</strong></p>
+<p>Data Type: Double (dbl)</p>
+<p>Description: The level of freedom citizens have to make life choices in the country.</p>
+<p><strong>Trust (Government Corruption):</strong></p>
+<p>Data Type: Double (dbl)&nbsp;</p>
+<p>Description: The level of trust in the country’s government and the perceived amount of corruption.</p>
+<p><strong>Generosity:</strong></p>
+<p>Data Type: Double (dbl)</p>
+<p>Description: The average level of generosity of the country’s citizens.</p>
+<p><strong>Dystopia Residual:</strong></p>
+<p>Data Type: Double (dbl)</p>
+<p>Description: A hypothetical measure that accounts for the unexplained components of happiness from the six factors evaluated.</p>
 </section>
 <section id="reason-for-choosing-this-dataset" class="level3">
 <h3 class="anchored" data-anchor-id="reason-for-choosing-this-dataset">Reason for Choosing this Dataset</h3>
@@ -178,16 +218,171 @@ ul.task-list li input[type="checkbox"] {
 <p>1. Global Relevance: Happiness is a fundamental aspect of human well-being, and this dataset provides a unique perspective on happiness trends worldwide. Our analysis can offer insights into what makes societies and individuals happy, transcending borders and cultures.</p>
 <p>2. Temporal Insights: The dataset covers a wide range of years, enabling us to track happiness trends and identify potential causative factors over time. This temporal dimension adds depth to our analysis.</p>
 </section>
+<section id="cleaned-dataset-for-all-years2015-2023" class="level3">
+<h3 class="anchored" data-anchor-id="cleaned-dataset-for-all-years2015-2023">Cleaned Dataset for all Years(2015-2023)</h3>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 1,368
+Columns: 11
+$ Country                         &lt;chr&gt; "Switzerland", "Iceland", "Denmark", "…
+$ `Happiness Rank`                &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,…
+$ `Happiness Score`               &lt;dbl&gt; 7.587, 7.561, 7.527, 7.522, 7.427, 7.4…
+$ `GDP per Capita`                &lt;dbl&gt; 1.39651, 1.30232, 1.32548, 1.45900, 1.…
+$ Family                          &lt;dbl&gt; 1.34951, 1.40223, 1.36058, 1.33095, 1.…
+$ `Health (Life Expectancy)`      &lt;dbl&gt; 0.94143, 0.94784, 0.87464, 0.88521, 0.…
+$ Freedom                         &lt;dbl&gt; 0.66557, 0.62877, 0.64938, 0.66973, 0.…
+$ `Trust (Government Corruption)` &lt;dbl&gt; 0.41978, 0.14145, 0.48357, 0.36503, 0.…
+$ Generosity                      &lt;dbl&gt; 0.29678, 0.43630, 0.34139, 0.34699, 0.…
+$ `Dystopia Residual`             &lt;dbl&gt; 2.51738, 2.70201, 2.49204, 2.46531, 2.…
+$ Year                            &lt;dbl&gt; 2015, 2015, 2015, 2015, 2015, 2015, 20…</code></pre>
+</div>
+</div>
+</section>
 </section>
 <section id="questions" class="level2">
 <h2 class="anchored" data-anchor-id="questions">Questions</h2>
-<p>The two questions you want to answer.</p>
+<ol type="1">
+<li>How do various factors contribute to the overall happiness score across different countries over the years?</li>
+<li></li>
+</ol>
 </section>
 <section id="analysis-plan" class="level2">
 <h2 class="anchored" data-anchor-id="analysis-plan">Analysis plan</h2>
 <ul>
-<li>A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).</li>
+<li><p><strong>Approach for Question 1</strong></p>
+<p>The different factors involved are as follows : economy (“GDP per capita”), family (“social support”), health(“healthy life expectancy at birth”), freedom (“freedom to make life choices”), trust(“perceptions of corruption”) and genorosity (“genorosity”).</p>
+<p>To explore how various factors contribute to the overall happiness score across different countries over the years, we have designed an interactive analysis where users can select a specific year and country from drop-down menus, allowing for a dynamic and personalized exploration of the data. We are planning to create a bar chart where the x-axis represents the factors (independent variables), and the y-axis represents their contribution to the overall happiness score. For better visulaization we are planning to choose a Grouped Bar chart, where separate bars represents each factor, and their heights represent their contributions to the overall happiness score. This chart provides a side-by-side comparison of each factor’s contribution. We are planning to expand the analysis by incorporating a stacked bar plot to gain more comprehensive visualization.</p></li>
 </ul>
+</section>
+<section id="plan-of-attack" class="level2">
+<h2 class="anchored" data-anchor-id="plan-of-attack">Plan of Attack</h2>
+<section id="week-1-oct-16---oct-22-everyone" class="level4">
+<h4 class="anchored" data-anchor-id="week-1-oct-16---oct-22-everyone">Week 1: (Oct 16 - Oct 22) [Everyone]</h4>
+</section>
+<section id="data-selection-and-initial-planning" class="level4">
+<h4 class="anchored" data-anchor-id="data-selection-and-initial-planning"><em>Data Selection and Initial Planning</em></h4>
+<ul>
+<li><em>Tasks:</em>
+<ul>
+<li>Identify and download the World Happiness Report dataset.</li>
+<li>Clean and preprocess the data, removing any inconsistencies or missing values.</li>
+<li>Familiarizing with the dataset’s structure and variables.</li>
+<li>Analysing more on the specific questions we want to address and the visualizations.</li>
+<li>Begin designing a rough sketch of the shiny app’s layout.</li>
+</ul></li>
+</ul>
+</section>
+<section id="week-2-oct-23---oct-29everyone" class="level4">
+<h4 class="anchored" data-anchor-id="week-2-oct-23---oct-29everyone">Week 2: (Oct 23 - Oct 29)[Everyone]</h4>
+</section>
+<section id="proposal-writing" class="level4">
+<h4 class="anchored" data-anchor-id="proposal-writing"><em>Proposal Writing</em></h4>
+<ul>
+<li><em>Tasks:</em>
+<ul>
+<li>Write a project proposal that includes the project’s goals, objectives, and scope.</li>
+<li>Define the questions you aim to answer with the shiny application.</li>
+<li>Outline the design and interactivity features we plan to include.</li>
+<li>Create a project timeline with specific milestones.</li>
+</ul></li>
+</ul>
+</section>
+<section id="week-3-oct-30---nov-5-everyone" class="level4">
+<h4 class="anchored" data-anchor-id="week-3-oct-30---nov-5-everyone">Week 3: (Oct 30 - Nov 5) [Everyone]</h4>
+</section>
+<section id="data-exploration-and-visualization-planning" class="level4">
+<h4 class="anchored" data-anchor-id="data-exploration-and-visualization-planning"><em>Data Exploration and Visualization Planning</em></h4>
+<ul>
+<li><em>Tasks:</em>
+<ul>
+<li>Conduct exploratory data analysis (EDA) to understand the dataset better.</li>
+<li>Identify interesting patterns, correlations, or outliers in the data.</li>
+<li>Sketch initial ideas for the app’s layout and visualizations.</li>
+</ul></li>
+</ul>
+</section>
+<section id="week-4-nov-6---nov-12-everyone" class="level4">
+<h4 class="anchored" data-anchor-id="week-4-nov-6---nov-12-everyone">Week 4: (Nov 6 - Nov 12) [Everyone]</h4>
+</section>
+<section id="shiny-application-layout-designing" class="level4">
+<h4 class="anchored" data-anchor-id="shiny-application-layout-designing"><em>Shiny Application Layout Designing</em></h4>
+<ul>
+<li><em>Tasks:</em>
+<ul>
+<li>Select the tools and libraries to be used for creating the app.</li>
+<li>Plan the layout, including the placement of plots, widgets, and navigation.</li>
+<li>Create a wireframe for user interface.</li>
+</ul></li>
+</ul>
+</section>
+<section id="week-5-nov-13---nov-19-tbd" class="level4">
+<h4 class="anchored" data-anchor-id="week-5-nov-13---nov-19-tbd">Week 5: (Nov 13 - Nov 19) [TBD]</h4>
+</section>
+<section id="plot-creation" class="level4">
+<h4 class="anchored" data-anchor-id="plot-creation"><em>Plot Creation</em></h4>
+<ul>
+<li><em>Tasks:</em>
+<ul>
+<li>Develop the plots and interactive components.</li>
+<li>Ensure that the plots represent the data accurately and are visually appealing.</li>
+<li>Initial integration of interactive elements into the shiny app.</li>
+</ul></li>
+</ul>
+</section>
+<section id="week-6-nov-20---nov-26-tbd" class="level4">
+<h4 class="anchored" data-anchor-id="week-6-nov-20---nov-26-tbd">Week 6: (Nov 20 - Nov 26) [TBD]</h4>
+</section>
+<section id="shiny-app-development-and-refinement" class="level4">
+<h4 class="anchored" data-anchor-id="shiny-app-development-and-refinement"><em>Shiny App Development and Refinement</em></h4>
+<ul>
+<li><em>Tasks:</em>
+<ul>
+<li>Code the functionality of the app using Shiny’s reactive elements.</li>
+<li>Implement interactivity features like dropdowns and filters.</li>
+<li>Test the app’s performance and user experience.</li>
+</ul></li>
+</ul>
+</section>
+<section id="week-7-nov-27---dec-3-everyone" class="level4">
+<h4 class="anchored" data-anchor-id="week-7-nov-27---dec-3-everyone">Week 7: (Nov 27 - Dec 3) [Everyone]</h4>
+</section>
+<section id="testing-and-modifications" class="level4">
+<h4 class="anchored" data-anchor-id="testing-and-modifications"><em>Testing and Modifications</em></h4>
+<ul>
+<li><em>Tasks:</em>
+<ul>
+<li>Conduct testing to identify and fix any bugs or issues.</li>
+<li>Gather feedback.</li>
+<li>Make improvements based on the feedback received.</li>
+</ul></li>
+</ul>
+</section>
+<section id="week-8-dec-4---dec11-everyone" class="level4">
+<h4 class="anchored" data-anchor-id="week-8-dec-4---dec11-everyone">Week 8: (Dec 4 - Dec11) [Everyone]</h4>
+</section>
+<section id="finalization-and-presentation" class="level4">
+<h4 class="anchored" data-anchor-id="finalization-and-presentation"><em>Finalization and Presentation</em></h4>
+<ul>
+<li><em>Tasks:</em>
+<ul>
+<li>Make any final refinements to the application.</li>
+<li>Complete the write-up or documentation.</li>
+<li>Prepare a presentation for the project.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="repo-organisation" class="level2">
+<h2 class="anchored" data-anchor-id="repo-organisation">Repo Organisation</h2>
+<ol type="1">
+<li>‘_extra/’: Serves as a repository for informal materials, notes, experimental content, and other items not directly related to the project but retained for potential future reference, without undergoing formal review or grading.</li>
+<li>‘_freeze/’: Reserved for storing generated files during the build process, representing the static state of the website at a specific point in time.</li>
+<li>‘_site/’: Used to contain the static website files generated after processing the quarto document.</li>
+<li>‘.github/’: Folder for organizing GitHub templates and workflows.</li>
+<li>‘data/’: Reserved for storing essential data files used in the project, such as input csv files.</li>
+<li>‘images/’: Dedicated to housing image files utilized within the project or generated images.</li>
+<li>‘presentation_files/’: Designated folder for managing files related to presentations.</li>
+</ol>
 
 
 </section>
