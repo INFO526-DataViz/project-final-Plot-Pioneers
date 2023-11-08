@@ -72,3 +72,80 @@ The two questions you want to answer.
 ## Analysis plan
 
 -   A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).
+
+## Plan of Attack
+
+#### Week 1: (Oct 16 - Oct 22) \[Everyone\]
+
+#### *Data Selection and Initial Planning*
+
+-   *Tasks:*
+    -   Identify and download the World Happiness Report dataset.
+    -   Clean and preprocess the data, removing any inconsistencies or missing values.
+    -   Familiarizing with the dataset's structure and variables.
+    -   Analysing more on the specific questions we want to address and the visualizations.
+    -   Begin designing a rough sketch of the shiny app's layout.
+
+#### Week 2: (Oct 23 - Oct 29)\[Everyone\]
+
+#### *Proposal Writing*
+
+-   *Tasks:*
+    -   Write a project proposal that includes the project's goals, objectives, and scope.
+    -   Define the questions you aim to answer with the shiny application.
+    -   Outline the design and interactivity features we plan to include.
+    -   Create a project timeline with specific milestones.
+
+#### Week 3: (Oct 30 - Nov 5) \[Everyone\]
+
+#### *Data Exploration and Visualization Planning*
+
+-   *Tasks:*
+    -   Conduct exploratory data analysis (EDA) to understand the dataset better.
+    -   Identify interesting patterns, correlations, or outliers in the data.
+    -   Sketch initial ideas for the app's layout and visualizations.
+
+#### Week 4: (Nov 6 - Nov 12) \[Everyone\]
+
+#### *Shiny Application Layout Designing*
+
+-   *Tasks:*
+    -   Select the tools and libraries to be used for creating the app.
+    -   Plan the layout, including the placement of plots, widgets, and navigation.
+    -   Create a wireframe for user interface.
+
+#### Week 5: (Nov 13 - Nov 19) \[TBD\]
+
+#### *Plot Creation*
+
+-   *Tasks:*
+    -   Develop the plots and interactive components.
+    -   Ensure that the plots represent the data accurately and are visually appealing.
+    -   Initial integration of interactive elements into the shiny app.
+
+#### Week 6: (Nov 20 - Nov 26) \[TBD\]
+
+#### *Shiny App Development and Refinement*
+
+-   *Tasks:*
+    -   Code the functionality of the app using Shiny's reactive elements.
+    -   Implement interactivity features like dropdowns and filters.
+    -   Test the app's performance and user experience.
+
+#### Week 7: (Nov 27 - Dec 3) \[Everyone\]
+
+#### *Testing and Modifications*
+
+-   *Tasks:*
+    -   Conduct testing to identify and fix any bugs or issues.
+    -   Gather feedback.
+    -   Make improvements based on the feedback received.
+
+#### Week 8: (Dec 4 - Dec11) \[Everyone\]
+
+#### *Finalization and Presentation* 
+
+-   *Tasks:*
+    -   Make any final refinements to the application.
+    -   Complete the write-up or documentation.
+    -   Prepare a presentation for the project.
