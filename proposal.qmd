@@ -423,21 +423,21 @@ write.csv(happiness_all_years_df, file = "data/happiness_all_years_df.csv")
 
 ## Analysis plan
 
--   **Approach for Question 1**
+### Approach for Question 1
 
-    The different factors involved are as follows : economy ("GDP per capita"), family ("social support"), health("healthy life expectancy at birth"), freedom ("freedom to make life choices"), trust("perceptions of corruption") and genorosity ("genorosity").
+The different factors involved are as follows : economy ("GDP per capita"), family ("social support"), health("healthy life expectancy at birth"), freedom ("freedom to make life choices"), trust("perceptions of corruption") and genorosity ("genorosity").
 
-    Objective : The aim is to enable users to interactively explore the impact of different factors on happiness scores by selecting specific years and countries.
+-   **Objective :** The aim is to enable users to interactively explore the impact of different factors on happiness scores by selecting specific years and countries.
 
-    Interactive Widgets: Adding user interface with two key drop-down menus, one for selecting the year and the other for choosing a specific country. This allows users to customize their data exploration.
+-   **Interactive Widgets:** Adding user interface with two key drop-down menus, one for selecting the year and the other for choosing a specific country. This allows users to customize their data exploration.
 
-    Visualization: Chart Selection - Planning to create a Grouped Bar chart for visualizing the contributions of different factors to the overall happiness score. In this chart, each factor is represented by a separate bar, and the height of each bar corresponds to its contribution to the overall happiness score. Also panning to expand the analysis by introducing a stacked bar plot. This plot adds a layer of depth to the analysis by visually representing how multiple factors contribute to the overall happiness score within the same bar, allowing users to see the combined effect of these factors.
+-   **Visualization:** Chart Selection - Planning to create a Grouped Bar chart for visualizing the contributions of different factors to the overall happiness score. In this chart, each factor is represented by a separate bar, and the height of each bar corresponds to its contribution to the overall happiness score. Also panning to expand the analysis by introducing a stacked bar plot. This plot adds a layer of depth to the analysis by visually representing how multiple factors contribute to the overall happiness score within the same bar, allowing users to see the combined effect of these factors.
 
-    Insights and Exploration: Observing and Highlighting factors that consistently impact happiness scores across different countries and years.
+Insights and Exploration: Observing and Highlighting factors that consistently impact happiness scores across different countries and years.
 
--   **Approach for Question 2**
+### Approach for Question 2
 
-    **Variables Involved:**
+-   **Variables Involved:**
 
     Year (Data Type: Integer): To identify the annual data points and capture trends over time.
 
@@ -445,7 +445,7 @@ write.csv(happiness_all_years_df, file = "data/happiness_all_years_df.csv")
 
     Happiness Score and related factors (Data Type: Double): To analyze changes and correlations.
 
-    **Variables to be Created:**
+-   **Variables to be Created:**
 
     Pandemic Period (Data Type: Character): A derived variable indicating pre-pandemic, during-pandemic, and post-pandemic periods.
 
@@ -453,7 +453,7 @@ write.csv(happiness_all_years_df, file = "data/happiness_all_years_df.csv")
 
     Average Change per Period (Data Type: Double): The average change in happiness scores for each period (pre, during, post-pandemic).
 
-    **Analysis and Visualization:**
+-   **Analysis and Visualization:**
 
     Trend Analysis: Create line graphs to visualize happiness scores over the years, with a clear demarcation of the pandemic period.
 
@@ -471,7 +471,7 @@ write.csv(happiness_all_years_df, file = "data/happiness_all_years_df.csv")
 
 ## Plan of Attack
 
-#### Week 1: (Oct 16 - Oct 22) \[Everyone\]
+### Week 1: (Oct 16 - Oct 22) \[Everyone\]
 
 #### *Data Selection and Initial Planning*
 
@@ -482,7 +482,7 @@ write.csv(happiness_all_years_df, file = "data/happiness_all_years_df.csv")
     -   Analysing more on the specific questions we want to address and the visualizations.
     -   Begin designing a rough sketch of the shiny app's layout.
 
-#### Week 2: (Oct 23 - Oct 29)\[Everyone\]
+### Week 2: (Oct 23 - Oct 29)\[Everyone\]
 
 #### *Proposal Writing*
 
@@ -492,7 +492,7 @@ write.csv(happiness_all_years_df, file = "data/happiness_all_years_df.csv")
     -   Outline the design and interactivity features we plan to include.
     -   Create a project timeline with specific milestones.
 
-#### Week 3: (Oct 30 - Nov 5) \[Everyone\]
+### Week 3: (Oct 30 - Nov 5) \[Everyone\]
 
 #### *Data Exploration and Visualization Planning*
 
@@ -501,7 +501,7 @@ write.csv(happiness_all_years_df, file = "data/happiness_all_years_df.csv")
     -   Identify interesting patterns, correlations, or outliers in the data.
     -   Sketch initial ideas for the app's layout and visualizations.
 
-#### Week 4: (Nov 6 - Nov 12) \[Everyone\]
+### Week 4: (Nov 6 - Nov 12) \[Everyone\]
 
 #### *Shiny Application Layout Designing*
 
@@ -510,7 +510,7 @@ write.csv(happiness_all_years_df, file = "data/happiness_all_years_df.csv")
     -   Plan the layout, including the placement of plots, widgets, and navigation.
     -   Create a wireframe for user interface.
 
-#### Week 5: (Nov 13 - Nov 19) \[TBD\]
+### Week 5: (Nov 13 - Nov 19) \[TBD\]
 
 #### *Plot Creation*
 
@@ -519,7 +519,7 @@ write.csv(happiness_all_years_df, file = "data/happiness_all_years_df.csv")
     -   Ensure that the plots represent the data accurately and are visually appealing.
     -   Initial integration of interactive elements into the shiny app.
 
-#### Week 6: (Nov 20 - Nov 26) \[TBD\]
+### Week 6: (Nov 20 - Nov 26) \[TBD\]
 
 #### *Shiny App Development and Refinement*
 
@@ -528,7 +528,7 @@ write.csv(happiness_all_years_df, file = "data/happiness_all_years_df.csv")
     -   Implement interactivity features like dropdowns and filters.
     -   Test the app's performance and user experience.
 
-#### Week 7: (Nov 27 - Dec 3) \[Everyone\]
+### Week 7: (Nov 27 - Dec 3) \[Everyone\]
 
 #### *Testing and Modifications*
 
@@ -537,7 +537,7 @@ write.csv(happiness_all_years_df, file = "data/happiness_all_years_df.csv")
     -   Gather feedback.
     -   Make improvements based on the feedback received.
 
-#### Week 8: (Dec 4 - Dec11) \[Everyone\]
+### Week 8: (Dec 4 - Dec11) \[Everyone\]
 
 #### *Finalization and Presentation*
 
