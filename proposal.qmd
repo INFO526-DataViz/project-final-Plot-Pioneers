@@ -469,6 +469,10 @@ Insights and Exploration: Observing and Highlighting factors that consistently i
 
     Analysis and Reporting: Note regional happiness shifts and anomalies. Combine statistical results and visual insights. Conclude on the link between pandemic and happiness scores, considering data limits.
 
+    #### Note: 
+
+    In the event of encountering global occurrences beyond COVID-19 that have a sustained impact on the world, we will incorporate them into our future considerations.
+
 ## Plan of Attack
 
 ### Week 1: (Oct 16 - Oct 22) \[Everyone\]
