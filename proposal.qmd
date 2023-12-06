@@ -33,6 +33,20 @@ Our primary goal with this project is to develop an interactive shiny applicatio
 
 ## Dataset
 
+```{r, echo=TRUE, warning=FALSE}
+#| label: load-dataset
+#| message: false
+df_2015 <- read.csv("data/2015.csv")
+df_2016 <- read.csv("data/2016.csv")
+df_2017 <- read.csv("data/2017.csv")
+df_2018 <- read.csv("data/2018.csv")
+df_2019 <- read.csv("data/2019.csv")
+df_2020 <- read.csv("data/2020.csv")
+df_2021 <- read.csv("data/2021.csv")
+df_2022 <- read.csv("data/2022.csv")
+df_2023 <- read.csv("data/2023.csv")
+```
+
 ### Dataset Description
 
 We are excited to embark on a journey to explore the [World Happiness Report dataset](https://worldhappiness.report/data/), encompassing the years 2015 to 2023. This engaging and illuminating dataset offers a unique glimpse into the factors influencing global happiness and well-being. Let's dive into the details of our chosen dataset:
@@ -45,65 +59,29 @@ Multiple annual observations, varying from 149 to 158 countries per year.
 
 Common variables across dataset:
 
-**Country:**
-
-Data Type: Character (chr)
-
-Description: The name of the country for which the happiness metrics are recorded.
-
-**Happiness Rank:**
-
-Data Type: Integer (int)
-
-Description: The rank of the country is based on its happiness score.
-
-**Happiness Score:**
-
-Data Type: Double (dbl)
-
-Description: The score that quantifies the happiness level, is based on various factors such as GDP per capita, social support, life expectancy, freedom to make life choices, generosity, and perceptions of corruption.
-
-**GDP per Capita:**
-
-Data Type: Double (dbl)
-
-Description: A measure of the country's economic output that accounts for its population.
-
-**Family:**
-
-Data Type: Double (dbl)
-
-Description: The degree to which social support is provided in the country, reflecting family ties or community support.
-
-**Health (Life Expectancy):**
-
-Data Type: Double (dbl)
-
-Description: Average life expectancy in the country, indicating the overall health of the population.
-
-**Freedom:**
-
-Data Type: Double (dbl)
-
-Description: The level of freedom citizens have to make life choices in the country.
-
-**Trust (Government Corruption):**
-
-Data Type: Double (dbl) 
-
-Description: The level of trust in the country's government and the perceived amount of corruption.
-
-**Generosity:**
-
-Data Type: Double (dbl)
-
-Description: The average level of generosity of the country's citizens.
-
-**Dystopia Residual:**
-
-Data Type: Double (dbl)
-
-Description: A hypothetical measure that accounts for the unexplained components of happiness from the six factors evaluated.
++-----------------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Variable name                     | data Type       | description                                                                                                                                                                                                  |
++===================================+=================+==============================================================================================================================================================================================================+
+| **Country**                       | Character (chr) | The name of the country for which the happiness metrics are recorded.                                                                                                                                        |
++-----------------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **Happiness Rank**                | Integer (int)   | The rank of the country is based on its happiness score.                                                                                                                                                     |
++-----------------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **Happiness Score**               | Double (dbl)    | The score that quantifies the happiness level, is based on various factors such as GDP per capita, social support, life expectancy, freedom to make life choices, generosity, and perceptions of corruption. |
++-----------------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **GDP per Capita**                | Double (dbl)    | Description: A measure of the country's economic output that accounts for its population.                                                                                                                    |
++-----------------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **Family**                        | Double (dbl)    | The degree to which social support is provided in the country, reflecting family ties or community support.                                                                                                  |
++-----------------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **Health (Life Expectancy)**      | Double (dbl)    | Average life expectancy in the country, indicating the overall health of the population.                                                                                                                     |
++-----------------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **Freedom**                       | Double (dbl)    | The level of freedom citizens have to make life choices in the country.                                                                                                                                      |
++-----------------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **Trust (Government Corruption)** | Double (dbl)    | The level of trust in the country's government and the perceived amount of corruption.                                                                                                                       |
++-----------------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **Generosity**                    | Double (dbl)    | The average level of generosity of the country's citizens.                                                                                                                                                   |
++-----------------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **Dystopia Residual**             | Double (dbl)    | A hypothetical measure that accounts for the unexplained components of happiness from the six factors evaluated.                                                                                             |
++-----------------------------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ### Reason for Choosing this Dataset
 
@@ -116,17 +94,8 @@ The World Happiness Report dataset offers a perfect blend of intriguing question
 ### Cleaned Dataset for all Years(2015-2023)
 
 ```{r, echo=FALSE, results='hide', warning=FALSE}
-#| label: load-dataset
+#| label: perprocess-dataset
 #| message: false
-df_2015 <- read.csv("data/2015.csv")
-df_2016 <- read.csv("data/2016.csv")
-df_2017 <- read.csv("data/2017.csv")
-df_2018 <- read.csv("data/2018.csv")
-df_2019 <- read.csv("data/2019.csv")
-df_2020 <- read.csv("data/2020.csv")
-df_2021 <- read.csv("data/2021.csv")
-df_2022 <- read.csv("data/2022.csv")
-df_2023 <- read.csv("data/2023.csv")
 str(df_2015)
 str(df_2016)
 str(df_2017)
@@ -399,7 +368,7 @@ cleaned_2023_df$Year <- 2023
 
 ```
 
-```{r, echo=FALSE, warning=FALSE}
+```{r, echo=TRUE, warning=FALSE}
 # Creating a list of all dataframes for easier handling
 list_of_dfs <- list(cleaned_2015_df, cleaned_2016_df, cleaned_2017_df, cleaned_2018_df, 
                     cleaned_2019_df, cleaned_2020_df, cleaned_2021_df, cleaned_2022_df, 
@@ -468,6 +437,10 @@ Insights and Exploration: Observing and Highlighting factors that consistently i
     Shiny App Features: Intuitive UI guiding through data and findings. Reactive visuals that update with user input. Interactive elements like sliders and drop downs for custom analyses.
 
     Analysis and Reporting: Note regional happiness shifts and anomalies. Combine statistical results and visual insights. Conclude on the link between pandemic and happiness scores, considering data limits.
+
+    #### Note:
+
+    In the event of encountering global occurrences beyond COVID-19 that have a sustained impact on the world, we will incorporate them into our future considerations.
 
 ## Plan of Attack
 

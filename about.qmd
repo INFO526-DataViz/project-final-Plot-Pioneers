@@ -1,5 +1,6 @@
 ---
-title: "About"
+title: "World Happiness Report"
+subtitle: "A Journey through World Happiness:)"
 format: html
 editor: visual
 ---

@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -184,6 +218,17 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="dataset" class="level2">
 <h2 class="anchored" data-anchor-id="dataset">Dataset</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df_2015 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/2015.csv"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df_2016 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/2016.csv"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df_2017 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/2017.csv"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df_2018 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/2018.csv"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df_2019 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/2019.csv"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df_2020 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/2020.csv"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>df_2021 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/2021.csv"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>df_2022 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/2022.csv"</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>df_2023 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/2023.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <section id="dataset-description" class="level3">
 <h3 class="anchored" data-anchor-id="dataset-description">Dataset Description</h3>
 <p>We are excited to embark on a journey to explore the <a href="https://worldhappiness.report/data/">World Happiness Report dataset</a>, encompassing the years 2015 to 2023. This engaging and illuminating dataset offers a unique glimpse into the factors influencing global happiness and well-being. Let’s dive into the details of our chosen dataset:</p>
@@ -193,36 +238,72 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="dimensions">Dimensions</h3>
 <p>Multiple annual observations, varying from 149 to 158 countries per year.</p>
 <p>Common variables across dataset:</p>
-<p><strong>Country:</strong></p>
-<p>Data Type: Character (chr)</p>
-<p>Description: The name of the country for which the happiness metrics are recorded.</p>
-<p><strong>Happiness Rank:</strong></p>
-<p>Data Type: Integer (int)</p>
-<p>Description: The rank of the country is based on its happiness score.</p>
-<p><strong>Happiness Score:</strong></p>
-<p>Data Type: Double (dbl)</p>
-<p>Description: The score that quantifies the happiness level, is based on various factors such as GDP per capita, social support, life expectancy, freedom to make life choices, generosity, and perceptions of corruption.</p>
-<p><strong>GDP per Capita:</strong></p>
-<p>Data Type: Double (dbl)</p>
-<p>Description: A measure of the country’s economic output that accounts for its population.</p>
-<p><strong>Family:</strong></p>
-<p>Data Type: Double (dbl)</p>
-<p>Description: The degree to which social support is provided in the country, reflecting family ties or community support.</p>
-<p><strong>Health (Life Expectancy):</strong></p>
-<p>Data Type: Double (dbl)</p>
-<p>Description: Average life expectancy in the country, indicating the overall health of the population.</p>
-<p><strong>Freedom:</strong></p>
-<p>Data Type: Double (dbl)</p>
-<p>Description: The level of freedom citizens have to make life choices in the country.</p>
-<p><strong>Trust (Government Corruption):</strong></p>
-<p>Data Type: Double (dbl)&nbsp;</p>
-<p>Description: The level of trust in the country’s government and the perceived amount of corruption.</p>
-<p><strong>Generosity:</strong></p>
-<p>Data Type: Double (dbl)</p>
-<p>Description: The average level of generosity of the country’s citizens.</p>
-<p><strong>Dystopia Residual:</strong></p>
-<p>Data Type: Double (dbl)</p>
-<p>Description: A hypothetical measure that accounts for the unexplained components of happiness from the six factors evaluated.</p>
+<table class="table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 6%">
+<col style="width: 79%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable name</th>
+<th>data Type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Country</strong></td>
+<td>Character (chr)</td>
+<td>The name of the country for which the happiness metrics are recorded.</td>
+</tr>
+<tr class="even">
+<td><strong>Happiness Rank</strong></td>
+<td>Integer (int)</td>
+<td>The rank of the country is based on its happiness score.</td>
+</tr>
+<tr class="odd">
+<td><strong>Happiness Score</strong></td>
+<td>Double (dbl)</td>
+<td>The score that quantifies the happiness level, is based on various factors such as GDP per capita, social support, life expectancy, freedom to make life choices, generosity, and perceptions of corruption.</td>
+</tr>
+<tr class="even">
+<td><strong>GDP per Capita</strong></td>
+<td>Double (dbl)</td>
+<td>Description: A measure of the country’s economic output that accounts for its population.</td>
+</tr>
+<tr class="odd">
+<td><strong>Family</strong></td>
+<td>Double (dbl)</td>
+<td>The degree to which social support is provided in the country, reflecting family ties or community support.</td>
+</tr>
+<tr class="even">
+<td><strong>Health (Life Expectancy)</strong></td>
+<td>Double (dbl)</td>
+<td>Average life expectancy in the country, indicating the overall health of the population.</td>
+</tr>
+<tr class="odd">
+<td><strong>Freedom</strong></td>
+<td>Double (dbl)</td>
+<td>The level of freedom citizens have to make life choices in the country.</td>
+</tr>
+<tr class="even">
+<td><strong>Trust (Government Corruption)</strong></td>
+<td>Double (dbl)</td>
+<td>The level of trust in the country’s government and the perceived amount of corruption.</td>
+</tr>
+<tr class="odd">
+<td><strong>Generosity</strong></td>
+<td>Double (dbl)</td>
+<td>The average level of generosity of the country’s citizens.</td>
+</tr>
+<tr class="even">
+<td><strong>Dystopia Residual</strong></td>
+<td>Double (dbl)</td>
+<td>A hypothetical measure that accounts for the unexplained components of happiness from the six factors evaluated.</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="reason-for-choosing-this-dataset" class="level3">
 <h3 class="anchored" data-anchor-id="reason-for-choosing-this-dataset">Reason for Choosing this Dataset</h3>
@@ -233,6 +314,16 @@ ul.task-list li input[type="checkbox"] {
 <section id="cleaned-dataset-for-all-years2015-2023" class="level3">
 <h3 class="anchored" data-anchor-id="cleaned-dataset-for-all-years2015-2023">Cleaned Dataset for all Years(2015-2023)</h3>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a list of all dataframes for easier handling</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>list_of_dfs <span class="ot">&lt;-</span> <span class="fu">list</span>(cleaned_2015_df, cleaned_2016_df, cleaned_2017_df, cleaned_2018_df, </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                    cleaned_2019_df, cleaned_2020_df, cleaned_2021_df, cleaned_2022_df, </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                    cleaned_2023_df)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Merging all dataframes into one</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>happiness_all_years_df <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">bind_rows</span>(list_of_dfs)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the combined dataframe</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(happiness_all_years_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 1,368
 Columns: 11
@@ -248,6 +339,8 @@ $ Generosity                      &lt;dbl&gt; 0.29678, 0.43630, 0.34139, 0.34699
 $ `Dystopia Residual`             &lt;dbl&gt; 2.51738, 2.70201, 2.49204, 2.46531, 2.…
 $ Year                            &lt;dbl&gt; 2015, 2015, 2015, 2015, 2015, 2015, 20…</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(happiness_all_years_df, <span class="at">file =</span> <span class="st">"data/happiness_all_years_df.csv"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#glimpse(happiness_all_years_df)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -288,7 +381,9 @@ $ Year                            &lt;dbl&gt; 2015, 2015, 2015, 2015, 2015, 2015
 <p>Causality and Control: Implement a causal analysis, such as difference-in-differences, to evaluate the pandemic’s impact on happiness while controlling for other variables like GDP per capita.</p>
 <p>Visualizations: Develop visualizations that highlight the onset of the pandemic, using markers or shaded areas on the line graphs. Create scatter plots and box plots to compare happiness against other variables across different timeframes.</p>
 <p>Shiny App Features: Intuitive UI guiding through data and findings. Reactive visuals that update with user input. Interactive elements like sliders and drop downs for custom analyses.</p>
-<p>Analysis and Reporting: Note regional happiness shifts and anomalies. Combine statistical results and visual insights. Conclude on the link between pandemic and happiness scores, considering data limits.</p></li>
+<p>Analysis and Reporting: Note regional happiness shifts and anomalies. Combine statistical results and visual insights. Conclude on the link between pandemic and happiness scores, considering data limits.</p>
+<h4 id="note" class="anchored">Note:</h4>
+<p>In the event of encountering global occurrences beyond COVID-19 that have a sustained impact on the world, we will incorporate them into our future considerations.</p></li>
 </ul>
 </section>
 </section>
