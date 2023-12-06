@@ -1,7 +1,7 @@
 ---
-title: "Project title"
-subtitle: "INFO 526 - Project Final"
-author: "Team name"
+title: "World Happiness Report"
+subtitle: "A Journey through World Happiness:)"
+author: "Plot Pioneers"
 format: html
 editor: visual
 ---
@@ -9,3 +9,490 @@ editor: visual
 ## Abstract
 
 Add project abstract here.
+
+```{r}
+df_2015 <- read.csv("data/2015.csv")
+df_2016 <- read.csv("data/2016.csv")
+df_2017 <- read.csv("data/2017.csv")
+df_2018 <- read.csv("data/2018.csv")
+df_2019 <- read.csv("data/2019.csv")
+df_2020 <- read.csv("data/2020.csv")
+df_2021 <- read.csv("data/2021.csv")
+df_2022 <- read.csv("data/2022.csv")
+df_2023 <- read.csv("data/2023.csv")
+str(df_2015)
+str(df_2016)
+str(df_2017)
+str(df_2018)
+str(df_2019)
+str(df_2020)
+str(df_2021)
+str(df_2022)
+str(df_2023)
+library(dplyr)
+
+#2015
+
+# Read CSV files and import into dataframes
+file_1 <- read.csv("data/2015.csv")
+happiness_2015_df <- file_1
+
+# Clean up the dataframe to rename data and match to all other years
+happiness_2015_df <- happiness_2015_df %>%
+  select(-Region) %>%
+  rename(`Happiness Rank` = `Happiness.Rank`,
+    `Happiness Score` = `Happiness.Score`,
+    `Economy` = `Economy..GDP.per.Capita.`,
+    `Health` = `Health..Life.Expectancy.`,
+    `Government Corruption` = `Trust..Government.Corruption.`,
+    `Dystopia Residual` = `Dystopia.Residual`) %>%
+  select(-`Standard.Error`)
+
+# Display the first few rows
+head(happiness_2015_df)
+
+
+#2016
+
+file_2 <- read.csv("data/2016.csv")
+happiness_2016_df <- file_2
+
+# Clean up the dataframe to rename data and match to all other years
+happiness_2016_df <- happiness_2016_df %>%
+  select(-Region) %>%
+  rename(`Happiness Rank` = `Happiness.Rank`,
+    `Happiness Score` = `Happiness.Score`,
+    `Economy` = `Economy..GDP.per.Capita.`,
+    `Health` = `Health..Life.Expectancy.`,
+    `Government Corruption` = `Trust..Government.Corruption.`,
+    `Dystopia Residual` = `Dystopia.Residual`) %>%
+  select(-`Lower.Confidence.Interval`, -`Upper.Confidence.Interval`)
+
+# Display the first few rows
+head(happiness_2016_df)
+
+#2017
+
+file_3 <- read.csv("data/2017.csv")
+happiness_2017_df <- file_3
+
+# Clean up the dataframe to rename data and match to all other years
+happiness_2017_df <- happiness_2017_df %>%
+  rename(
+    `Happiness Rank` = `Happiness.Rank`,
+    `Happiness Score` = `Happiness.Score`,
+    `Economy` = `Economy..GDP.per.Capita.`,
+    `Health` = `Health..Life.Expectancy.`,
+    `Government Corruption` = `Trust..Government.Corruption.`,
+    `Dystopia Residual` = `Dystopia.Residual`
+  ) %>%
+  select(-`Whisker.high`, -`Whisker.low`)
+
+# Display the first few rows
+head(happiness_2017_df)
+
+#2018
+
+file_4 <- read.csv("data/2018.csv")
+happiness_2018_df <- file_4
+
+# Clean up the dataframe to rename data and match to all other years
+happiness_2018_df <- happiness_2018_df %>%
+  rename(
+    `Happiness Rank` = `Overall.rank`,
+    `Country` = `Country.or.region`,
+    `Happiness Score` = `Score`,
+    `Economy` = `GDP.per.capita`,
+    `Family` = `Social.support`,
+    `Health` = `Healthy.life.expectancy`,
+    `Freedom` = `Freedom.to.make.life.choices`,
+    `Government Corruption` = `Perceptions.of.corruption`
+  )
+
+# Assuming we want to convert the 'Happiness.score' column to numeric
+happiness_2018_df$`Government Corruption` <- as.numeric(gsub(",", ".", happiness_2018_df$`Government Corruption`))
+# Display the first few rows
+head(happiness_2018_df)
+
+
+
+
+#2019
+
+
+
+file_5 <- read.csv("data/2019.csv")
+happiness_2019_df <- file_5
+
+# Clean up the dataframe to rename data and match to all other years
+happiness_2019_df <- happiness_2019_df %>%
+  rename(
+    `Happiness Rank` = `Overall.rank`,
+    `Country` = `Country.or.region`,
+    `Happiness Score` = `Score`,
+    `Economy` = `GDP.per.capita`,
+    `Family` = `Social.support`,
+    `Health` = `Healthy.life.expectancy`,
+    `Freedom` = `Freedom.to.make.life.choices`,
+    `Government Corruption` = `Perceptions.of.corruption`
+  )
+
+# Display the first few rows
+head(happiness_2019_df)
+
+
+# Add the 'Dystopia Residual' column to the 2018 and 2019 dataframes
+happiness_2018_df$`Dystopia Residual` <- NA
+happiness_2019_df$`Dystopia Residual` <- NA
+
+#2020
+
+
+file_6 <- read.csv("data/2020.csv")
+happiness_2020_df <- file_6
+
+# Clean up the dataframe to rename data and match to all other years
+happiness_2020_df <- happiness_2020_df %>%
+  select(-`Generosity`) %>%
+  rename(
+    `Country` = `Country.name`,
+    `Happiness Score` = `Ladder.score`,
+    `Economy` = `Explained.by..Log.GDP.per.capita`,
+    `Family` = `Explained.by..Social.support`,
+    `Health` = `Explained.by..Healthy.life.expectancy`,
+    `Freedom` = `Explained.by..Freedom.to.make.life.choices`,
+    `Government Corruption` = `Explained.by..Perceptions.of.corruption`,
+    `Generosity` = `Explained.by..Generosity`,
+    `Dystopia Residual` = `Dystopia...residual`
+  ) %>%
+  select(-`Regional.indicator`, -`Standard.error.of.ladder.score`, -`upperwhisker`, -`lowerwhisker`,-`Logged.GDP.per.capita`, -`Social.support`, -`Healthy.life.expectancy`, -`Freedom.to.make.life.choices`, -`Perceptions.of.corruption`, -`Ladder.score.in.Dystopia`)
+
+# Add a "Happiness Rank" column after the "Country" column
+happiness_2020_df <- happiness_2020_df %>%
+  mutate(`Happiness Rank` = rank(-`Happiness Score`, ties.method = "first")) %>%
+  select(Country, `Happiness Rank`, everything())
+
+#Display the first few rows
+head(happiness_2020_df)
+
+#2021
+
+file_7 <- read.csv("data/2021.csv")
+happiness_2021_df <- file_7
+
+# Clean up the dataframe to rename data and match to all other years
+happiness_2021_df <- happiness_2021_df %>%
+  select(-`Generosity`) %>%
+  rename(
+    `Country` = `Country.name`,
+    `Happiness Score` = `Ladder.score`,
+    `Economy` = `Explained.by..Log.GDP.per.capita`,
+    `Family` = `Explained.by..Social.support`,
+    `Health` = `Explained.by..Healthy.life.expectancy`,
+    `Freedom` = `Explained.by..Freedom.to.make.life.choices`,
+    `Government Corruption` = `Explained.by..Perceptions.of.corruption`,
+    `Generosity` = `Explained.by..Generosity`,
+    `Dystopia Residual` = `Dystopia...residual`
+  ) %>%
+  select(-`Regional.indicator`, -`Standard.error.of.ladder.score`, -`upperwhisker`, -`lowerwhisker`,-`Logged.GDP.per.capita`, -`Social.support`, -`Healthy.life.expectancy`, -`Freedom.to.make.life.choices`, -`Perceptions.of.corruption`, -`Ladder.score.in.Dystopia`)
+
+# Add a "Happiness Rank" column after the "Country" column
+happiness_2021_df <- happiness_2021_df %>%
+  mutate(`Happiness Rank` = rank(-`Happiness Score`, ties.method = "first")) %>%
+  select(Country, `Happiness Rank`, everything())
+
+#Display the first few rows
+head(happiness_2021_df)
+
+
+#2022
+
+file_8 <- read.csv("data/2022.csv")
+happiness_2022_df <- file_8
+
+# Convert only specific columns that contain numbers
+numeric_cols <- c('Happiness.score', 'Explained.by..GDP.per.capita', 'Explained.by..Social.support', 
+                  'Explained.by..Healthy.life.expectancy', 'Explained.by..Freedom.to.make.life.choices', 
+                  'Explained.by..Perceptions.of.corruption', 'Explained.by..Generosity', 
+                  'Dystopia..1.83....residual')
+
+happiness_2022_df[numeric_cols] <- lapply(happiness_2022_df[numeric_cols], function(x) {
+  as.numeric(gsub(",", ".", x))
+})
+
+
+# Clean up the dataframe to rename data and match to all other years
+happiness_2022_df <- happiness_2022_df %>%
+  rename(
+    `Happiness Rank` = `RANK`,
+    `Happiness Score` = `Happiness.score`,
+    `Economy` = `Explained.by..GDP.per.capita`,
+    `Family` = `Explained.by..Social.support`,
+    `Health` = `Explained.by..Healthy.life.expectancy`,
+    `Freedom` = `Explained.by..Freedom.to.make.life.choices`,
+    `Government Corruption` = `Explained.by..Perceptions.of.corruption`,
+    `Generosity` = `Explained.by..Generosity`,
+    `Dystopia Residual` = `Dystopia..1.83....residual`
+  ) %>%
+  select( -`Whisker.high`, -`Whisker.low`) 
+
+#Display the first few rows
+head(happiness_2022_df)
+
+
+#2023
+
+
+file_9 <- read.csv("data/2023.csv")
+happiness_2023_df <- file_9
+
+# Clean up the dataframe to rename data and match to all other years
+happiness_2023_df <- happiness_2023_df %>%
+  select(-`Generosity`) %>%
+  rename(
+    `Country` = `Country.name`,
+    `Happiness Score` = `Ladder.score`,
+    `Economy` = `Explained.by..Log.GDP.per.capita`,
+    `Family` = `Explained.by..Social.support`,
+    `Health` = `Explained.by..Healthy.life.expectancy`,
+    `Freedom` = `Explained.by..Freedom.to.make.life.choices`,
+    `Government Corruption` = `Explained.by..Perceptions.of.corruption`,
+    `Generosity` = `Explained.by..Generosity`,
+    `Dystopia Residual` = `Dystopia...residual`
+  ) %>%
+  select( -`Standard.error.of.ladder.score`, -`upperwhisker`, -`lowerwhisker`,-`Logged.GDP.per.capita`, -`Social.support`, -`Healthy.life.expectancy`, -`Freedom.to.make.life.choices`, -`Perceptions.of.corruption`, -`Ladder.score.in.Dystopia`)
+
+# Add a "Happiness Rank" column after the "Country" column
+happiness_2023_df <- happiness_2023_df %>%
+  mutate(`Happiness Rank` = rank(-`Happiness Score`, ties.method = "first")) %>%
+  select(Country, `Happiness Rank`, everything())
+
+#Display the first few rows
+head(happiness_2023_df)
+
+
+
+# Adding 'Year' column to each dataframe
+happiness_2015_df$Year <- 2015
+happiness_2016_df$Year <- 2016
+happiness_2017_df$Year <- 2017
+happiness_2018_df$Year <- 2018
+happiness_2019_df$Year <- 2019
+happiness_2020_df$Year <- 2020
+happiness_2021_df$Year <- 2021
+happiness_2022_df$Year <- 2022
+happiness_2023_df$Year <- 2023
+
+# Save the updated combined dataset
+write.csv(happiness_2015_df, 'data/cleaned_2015_df.csv', row.names = FALSE)
+
+# Save the updated combined dataset
+write.csv(happiness_2016_df, 'data/cleaned_2016_df.csv', row.names = FALSE)
+
+# Save the updated combined dataset
+write.csv(happiness_2017_df, 'data/cleaned_2017_df.csv', row.names = FALSE)
+
+# Save the updated combined dataset
+write.csv(happiness_2018_df, 'data/cleaned_2018_df.csv', row.names = FALSE)
+
+# Save the updated combined dataset
+write.csv(happiness_2019_df, 'data/cleaned_2019_df.csv', row.names = FALSE)
+
+# Save the updated combined dataset
+write.csv(happiness_2020_df, 'data/cleaned_2020_df.csv', row.names = FALSE)
+
+# Save the updated combined dataset
+write.csv(happiness_2021_df, 'data/cleaned_2021_df.csv', row.names = FALSE)
+
+
+# Save the updated combined dataset
+write.csv(happiness_2022_df, 'data/cleaned_2022_df.csv', row.names = FALSE)
+
+
+# Save the updated combined dataset
+write.csv(happiness_2023_df, 'data/cleaned_2023_df.csv', row.names = FALSE)
+
+
+# Creating a list of all dataframes for easier handling
+list_of_dfs <- list(happiness_2015_df, happiness_2016_df, happiness_2017_df, happiness_2018_df, 
+                    happiness_2019_df, happiness_2020_df, happiness_2021_df, happiness_2022_df, 
+                    happiness_2023_df)
+
+# Merging all dataframes into one
+happiness_all_years_df <- dplyr::bind_rows(list_of_dfs)
+
+# Check the combined dataframe
+print(happiness_all_years_df)
+str(happiness_all_years_df)
+
+
+```
+
+```{r}
+# Load necessary libraries
+library(dplyr)
+
+# Read the 2015 dataset
+df_2015 <- read.csv('data/2015.csv')
+
+# Select only the Country and Region columns and remove duplicates
+countries_aggregated <- df_2015 %>% 
+  select(Country, Region) %>% 
+  distinct()
+
+# Save this new dataset to a CSV file
+write.csv(countries_aggregated, 'data/countries_aggregated.csv', row.names = FALSE)
+
+# Create a mapping of countries to regions
+country_region_map <- df_2015 %>% select(Country, Region) %>% unique()
+
+# Read the combined dataset
+df_combined <- read.csv('data/happiness_all_years_df.csv')
+
+# Add the 'Region' column to the combined dataset
+df_combined <- df_combined %>% 
+               left_join(country_region_map, by = "Country")
+
+df_combined <- df_combined %>% select(-1)
+
+# Check the first few rows of the updated combined dataset
+head(df_combined)
+
+
+# Save the updated combined dataset
+write.csv(df_combined, 'data/updated_happiness_all_years.csv', row.names = FALSE)
+```
+
+```{r}
+
+
+#2015
+
+cl_2015 <- read.csv('data/cleaned_2015_df.csv')
+
+cl_2015 <- cl_2015 %>% 
+                 left_join(country_region_map, by = "Country")
+
+#cl_2015 <- cl_2015 %>% select(-1)
+
+head(cl_2015)
+
+# Save the updated combined dataset
+write.csv(cl_2015, 'data/happiness_2015_clean.csv', row.names = FALSE)
+
+#2016
+
+cl_2016 <- read.csv('data/cleaned_2016_df.csv')
+
+cl_2016 <- cl_2016 %>% 
+                 left_join(country_region_map, by = "Country")
+
+#cl_2016 <- cl_2016 %>% select(-1)
+
+head(cl_2016)
+
+# Save the updated combined dataset
+write.csv(cl_2016, 'data/happiness_2016_clean.csv', row.names = FALSE)
+
+
+
+#2017
+
+
+cl_2017 <- read.csv('data/cleaned_2017_df.csv')
+
+cl_2017 <- cl_2017 %>% 
+                 left_join(country_region_map, by = "Country")
+
+#cl_2017 <- cl_2017 %>% select(-1)
+head(cl_2017)
+
+# Save the updated combined dataset
+write.csv(cl_2017, 'data/happiness_2017_clean.csv', row.names = FALSE)
+
+
+#2018
+
+
+cl_2018 <- read.csv('data/cleaned_2018_df.csv')
+
+cl_2018 <- cl_2018 %>% 
+                 left_join(country_region_map, by = "Country")
+#cl_2018 <- cl_2018 %>% select(-1)
+head(cl_2018)
+# Save the updated combined dataset
+write.csv(cl_2018, 'data/happiness_2018_clean.csv', row.names = FALSE)
+
+
+#2019
+
+
+cl_2019 <- read.csv('data/cleaned_2019_df.csv')
+
+cl_2019 <- cl_2019 %>% 
+                 left_join(country_region_map, by = "Country")
+#cl_2019 <- cl_2019 %>% select(-1)
+head(cl_2019)
+
+
+# Save the updated combined dataset
+write.csv(cl_2019, 'data/happiness_2019_clean.csv', row.names = FALSE)
+
+#2020
+
+
+
+cl_2020 <- read.csv('data/cleaned_2020_df.csv')
+
+cl_2020 <- cl_2020 %>% 
+                 left_join(country_region_map, by = "Country")
+#cl_2020 <- cl_2020 %>% select(-1)
+head(cl_2020)
+# Save the updated combined dataset
+write.csv(cl_2020, 'data/happiness_2020_clean.csv', row.names = FALSE)
+
+
+#2021
+
+
+cl_2021 <- read.csv('data/cleaned_2021_df.csv')
+
+cl_2021 <- cl_2021 %>% 
+                 left_join(country_region_map, by = "Country")
+#cl_2021 <- cl_2021 %>% select(-1)
+head(cl_2021)
+
+# Save the updated combined dataset
+write.csv(cl_2021, 'data/happiness_2021_clean.csv', row.names = FALSE)
+
+#2022
+
+cl_2022 <- read.csv('data/cleaned_2022_df.csv')
+
+cl_2022 <- cl_2022 %>% 
+                 left_join(country_region_map, by = "Country")
+#cl_2022 <- cl_2022 %>% select(-1)
+head(cl_2022)
+
+# Save the updated combined dataset
+write.csv(cl_2022, 'data/happiness_2022_clean.csv', row.names = FALSE)
+
+
+#2023
+
+
+cl_2023 <- read.csv('data/cleaned_2023_df.csv')
+
+cl_2023 <- cl_2023 %>% 
+                 left_join(country_region_map, by = "Country")
+#cl_2023 <- cl_2023 %>% select(-1)
+head(cl_2023)
+
+# Save the updated combined dataset
+write.csv(cl_2023, 'data/happiness_2023_clean.csv', row.names = FALSE)
+
+
+
+
+
+```
