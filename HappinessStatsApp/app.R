@@ -21,7 +21,7 @@ countries_all <- read.csv("data/countries_aggregated.csv", stringsAsFactors = TR
 
 # Define UI
 ui <- navbarPage(
-  theme = shinytheme("journal"),
+  theme = shinytheme("flatly"),
   title = "World Happiness",
   tabPanel("Plot",
            sidebarPanel(width = 3,
