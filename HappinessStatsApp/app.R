@@ -7,17 +7,18 @@ library(plotly)
 library(shinythemes)
 
 # Load datasets for each year
-happiness2015 <- read.csv("data/happiness_2015_clean.csv", stringsAsFactors = TRUE)
-happiness2016 <- read.csv("data/happiness_2016_clean.csv", stringsAsFactors = TRUE)
-happiness2017 <- read.csv("data/happiness_2017_clean.csv", stringsAsFactors = TRUE)
-happiness2018 <- read.csv("data/happiness_2018_clean.csv", stringsAsFactors = TRUE)
-happiness2019 <- read.csv("data/happiness_2019_clean.csv", stringsAsFactors = TRUE)
-happiness2020 <- read.csv("data/happiness_2020_clean.csv", stringsAsFactors = TRUE)
-happiness2021 <- read.csv("data/happiness_2021_clean.csv", stringsAsFactors = TRUE)
-happiness2022 <- read.csv("data/happiness_2022_clean.csv", stringsAsFactors = TRUE)
-happiness2023 <- read.csv("data/happiness_2023_clean.csv", stringsAsFactors = TRUE)
+happiness2015 <- read.csv(here("data", "happiness_2015_clean.csv"), stringsAsFactors = TRUE)
+happiness2016 <- read.csv(here("data", "happiness_2016_clean.csv"), stringsAsFactors = TRUE)
+happiness2017 <- read.csv(here("data", "happiness_2017_clean.csv"), stringsAsFactors = TRUE)
+happiness2018 <- read.csv(here("data", "happiness_2018_clean.csv"), stringsAsFactors = TRUE)
+happiness2019 <- read.csv(here("data", "happiness_2019_clean.csv"), stringsAsFactors = TRUE)
+happiness2020 <- read.csv(here("data", "happiness_2020_clean.csv"), stringsAsFactors = TRUE)
+happiness2021 <- read.csv(here("data", "happiness_2021_clean.csv"), stringsAsFactors = TRUE)
+happiness2022 <- read.csv(here("data", "happiness_2022_clean.csv"), stringsAsFactors = TRUE)
+happiness2023 <- read.csv(here("data", "happiness_2023_clean.csv"), stringsAsFactors = TRUE)
 
-countries_all <- read.csv("data/countries_aggregated.csv", stringsAsFactors = TRUE)
+countries_all <- read.csv(here("data", "countries_aggregated.csv"), stringsAsFactors = TRUE)
+
 
 # Define UI
 ui <- navbarPage(
