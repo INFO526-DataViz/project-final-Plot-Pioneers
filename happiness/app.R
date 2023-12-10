@@ -21,7 +21,7 @@ countries_all <- read.csv("data/countries_aggregated.csv", stringsAsFactors = TR
 
 # Define UI
 ui <- navbarPage(
-  theme = shinytheme("darkly"),
+  theme = shinytheme("cyborg"),
   title = "World Happiness",
   tabPanel("Plot",
            sidebarPanel(width = 3,
@@ -52,7 +52,7 @@ ui <- navbarPage(
                                     href = "https://www.kaggle.com/unsdsn/world-happiness")),
                         br(), br(),
                         em(
-                          span("Created by", a(href = "https://github.com/shalonwalter", "Plot Pioneers")),
+                          span("Created by", a(href = "https://github.com/INFO526-DataViz/project-final-Plot-Pioneers/tree/main", "Plot Pioneers")),
                           br(),
                           span("Code", a(href = "https://github.com/INFO526-DataViz/project-final-Plot-Pioneers/tree/main", "on GitHub"))
                         )
@@ -75,6 +75,11 @@ ui <- navbarPage(
                         br(), 
                         h2("Bottom 10"),
                         wellPanel(dataTableOutput("rank_table_bottom"))
+               ),
+               tabPanel("COVID-19 Pandemic Happiness Trends",
+                        h2("Happiness Rank Time Series"),
+                        p("This plot shows the changes in happiness ranks of various countries during the COVID-19 pandemic years 2020-2022."),
+                        plotlyOutput("covid_timeseries_plot", height = 800) 
                )
              )
            )
@@ -258,6 +263,27 @@ server <- function(input, output, session) {
   options = list(lengthChange = FALSE, 
                  scrollX = "100%")
   )
+  
+  
+  # Combine the datasets for the COVID-19 pandemic years
+  covid_years_data <- bind_rows(
+    happiness2020 %>% mutate(Year = 2020),
+    happiness2021 %>% mutate(Year = 2021),
+    happiness2022 %>% mutate(Year = 2022)
+  )
+  
+  output$covid_timeseries_plot <- renderPlotly({
+    filtered_covid_data <- covid_years_data %>%
+      filter(Country %in% input$country)
+   #time series plot
+    plot_ly(data = filtered_covid_data, x = ~Year, y = ~Happiness.Rank, color = ~Region, type = 'scatter', mode = 'lines+markers') %>%
+      layout(title = list(text = 'COVID-19 Pandemic Happiness Rank Trends'),
+             margin = list(t = 50),
+             xaxis = list(title = 'Year', tickvals = c('2020', '2021', '2022'), 
+                          ticktext = c('2020', '2021', '2022')),
+             yaxis = list(title = 'Happiness Rank'),
+             hovermode = 'closest')
+  })
   
 }
 
