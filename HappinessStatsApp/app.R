@@ -119,48 +119,111 @@ server <- function(input, output, session) {
   
   # Observers for each year button
   observeEvent(input$button2015, {
+    showModal(modalDialog(
+      title = "Loading",
+      "Please wait while the data is being loaded...",
+      easyClose = TRUE,
+      footer = NULL
+    ))
     data_year$data <- happiness2015
     data_year$year <- "2015"
+    removeModal()
   })
   
   observeEvent(input$button2016, {
-    data_year$data <- happiness2016
+    showModal(modalDialog(
+      title = "Loading",
+      "Please wait while the data is being loaded...",
+      easyClose = TRUE,
+      footer = NULL
+    ))
+    data_year$data <- happiness2015
     data_year$year <- "2016"
+    removeModal()
   })
   
   observeEvent(input$button2017, {
-    data_year$data <- happiness2017
+    showModal(modalDialog(
+      title = "Loading",
+      "Please wait while the data is being loaded...",
+      easyClose = TRUE,
+      footer = NULL
+    ))
+    data_year$data <- happiness2015
     data_year$year <- "2017"
+    removeModal()
   })
   
   observeEvent(input$button2018, {
-    data_year$data <- happiness2018
+    showModal(modalDialog(
+      title = "Loading",
+      "Please wait while the data is being loaded...",
+      easyClose = TRUE,
+      footer = NULL
+    ))
+    data_year$data <- happiness2015
     data_year$year <- "2018"
+    removeModal()
   })
   
   observeEvent(input$button2019, {
-    data_year$data <- happiness2019
+    showModal(modalDialog(
+      title = "Loading",
+      "Please wait while the data is being loaded...",
+      easyClose = TRUE,
+      footer = NULL
+    ))
+    data_year$data <- happiness2015
     data_year$year <- "2019"
+    removeModal()
   })
   
   observeEvent(input$button2020, {
-    data_year$data <- happiness2020
+    showModal(modalDialog(
+      title = "Loading",
+      "Please wait while the data is being loaded...",
+      easyClose = TRUE,
+      footer = NULL
+    ))
+    data_year$data <- happiness2015
     data_year$year <- "2020"
+    removeModal()
   })
   
   observeEvent(input$button2021, {
-    data_year$data <- happiness2021
+    showModal(modalDialog(
+      title = "Loading",
+      "Please wait while the data is being loaded...",
+      easyClose = TRUE,
+      footer = NULL
+    ))
+    data_year$data <- happiness2015
     data_year$year <- "2021"
+    removeModal()
   })
   
   observeEvent(input$button2022, {
-    data_year$data <- happiness2022
+    showModal(modalDialog(
+      title = "Loading",
+      "Please wait while the data is being loaded...",
+      easyClose = TRUE,
+      footer = NULL
+    ))
+    data_year$data <- happiness2015
     data_year$year <- "2022"
+    removeModal()
   })
   
   observeEvent(input$button2023, {
-    data_year$data <- happiness2023
+    showModal(modalDialog(
+      title = "Loading",
+      "Please wait while the data is being loaded...",
+      easyClose = TRUE,
+      footer = NULL
+    ))
+    data_year$data <- happiness2015
     data_year$year <- "2023"
+    removeModal()
   })
   
   filtered_data <- reactive({
@@ -348,9 +411,8 @@ server <- function(input, output, session) {
       labs(fill = "Happiness Rank", title = paste("World Happiness Map", data_year$year))
     
     # Convert to plotly and customize hover information
-    ggplotly(p, tooltip = "text") 
+    ggplotly(p, tooltip = "text")
   })
-  
 }
 
 # Run the application 
