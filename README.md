@@ -6,7 +6,7 @@ This project was developed by ***Plot Pioneers*** For [INFO 526 - Data Analysis 
 
 -   [Shalon Walter](https://github.com/shalonwalter): Graduate student majoring in Data Science.
 
--   [Priyarsha Vallabhaneni](https://github.com/Priyarsha31): Graduate student pursuing Data Science major.
+-   [Priyarsha Vallabhaneni](https://github.com/Priyarsha31): Graduate student pursuing Data Science.
 
 -   [Chethana Thondebhavi Shantha Kumar](https://github.com/Chethana-16): Graduate student majoring in Data Science.
 
