@@ -293,15 +293,25 @@ server <- function(input, output, session) {
   
   output$covid_timeseries_plot <- renderPlotly({
     filtered_covid_data <- covid_years_data %>%
-      filter(Country %in% input$country)
+      filter(Country %in% input$country) %>%
+      arrange(Year, Country) %>%
+      group_by(Year) %>%
+      slice_head(n = input$num_countries) %>%
+      ungroup()
     
-    # Generate a title string that includes selected countries
-    selected_countries <- paste(input$country, collapse = ", ")
-    plot_title <- ifelse(nchar(selected_countries) > 0, 
-                         paste("Happiness Rank Trends for", selected_countries), 
-                         "Happiness Rank Trends")
+    
+    # Check if "Select All" is chosen and set the title accordingly
+    if ("Select All" %in% input$country || length(input$country) == length(countries_all$Country)) {
+      plot_title <- "Happiness Rank Trends"
+    } else {
+      selected_countries <- paste(input$country, collapse = ", ")
+      plot_title <- paste("Happiness Rank Trends for", selected_countries)
+    }
+    
+    
    #time series plot
-    plot_ly(data = filtered_covid_data, x = ~Year, y = ~Happiness.Rank, color = ~Region, type = 'scatter', mode = 'lines+markers') %>%
+    plot_ly(data = filtered_covid_data, x = ~Year, y = ~Happiness.Rank, color = ~Region, type = 'scatter', mode = 'lines+markers', hoverinfo = 'text',
+            text = ~paste("Country:", Country, "<br>Year:", Year, "<br>Happiness Rank:", Happiness.Rank)) %>%
       layout(title = list(text = plot_title),
              margin = list(t = 50),
              xaxis = list(title = 'Year', tickvals = c('2015','2016','2017','2018','2019','2020', '2021', '2022', '2023'), 
