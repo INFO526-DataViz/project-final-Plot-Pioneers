@@ -137,7 +137,7 @@ server <- function(input, output, session) {
       easyClose = TRUE,
       footer = NULL
     ))
-    data_year$data <- happiness2015
+    data_year$data <- happiness2016
     data_year$year <- "2016"
     removeModal()
   })
@@ -149,7 +149,7 @@ server <- function(input, output, session) {
       easyClose = TRUE,
       footer = NULL
     ))
-    data_year$data <- happiness2015
+    data_year$data <- happiness2017
     data_year$year <- "2017"
     removeModal()
   })
@@ -161,7 +161,7 @@ server <- function(input, output, session) {
       easyClose = TRUE,
       footer = NULL
     ))
-    data_year$data <- happiness2015
+    data_year$data <- happiness2018
     data_year$year <- "2018"
     removeModal()
   })
@@ -173,7 +173,7 @@ server <- function(input, output, session) {
       easyClose = TRUE,
       footer = NULL
     ))
-    data_year$data <- happiness2015
+    data_year$data <- happiness2019
     data_year$year <- "2019"
     removeModal()
   })
@@ -185,7 +185,7 @@ server <- function(input, output, session) {
       easyClose = TRUE,
       footer = NULL
     ))
-    data_year$data <- happiness2015
+    data_year$data <- happiness2020
     data_year$year <- "2020"
     removeModal()
   })
@@ -197,7 +197,7 @@ server <- function(input, output, session) {
       easyClose = TRUE,
       footer = NULL
     ))
-    data_year$data <- happiness2015
+    data_year$data <- happiness2021
     data_year$year <- "2021"
     removeModal()
   })
@@ -209,7 +209,7 @@ server <- function(input, output, session) {
       easyClose = TRUE,
       footer = NULL
     ))
-    data_year$data <- happiness2015
+    data_year$data <- happiness2022
     data_year$year <- "2022"
     removeModal()
   })
@@ -221,7 +221,7 @@ server <- function(input, output, session) {
       easyClose = TRUE,
       footer = NULL
     ))
-    data_year$data <- happiness2015
+    data_year$data <- happiness2023
     data_year$year <- "2023"
     removeModal()
   })
