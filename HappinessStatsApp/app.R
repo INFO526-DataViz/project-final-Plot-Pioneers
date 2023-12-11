@@ -5,6 +5,9 @@ library(ggplot2)
 library(dplyr)
 library(plotly)
 library(shinythemes)
+library(here)
+library(sf)
+library(rnaturalearth)
 
 # Load datasets for each year
 happiness2015 <- read.csv(here("data", "happiness_2015_clean.csv"), stringsAsFactors = TRUE)
@@ -16,7 +19,7 @@ happiness2020 <- read.csv(here("data", "happiness_2020_clean.csv"), stringsAsFac
 happiness2021 <- read.csv(here("data", "happiness_2021_clean.csv"), stringsAsFactors = TRUE)
 happiness2022 <- read.csv(here("data", "happiness_2022_clean.csv"), stringsAsFactors = TRUE)
 happiness2023 <- read.csv(here("data", "happiness_2023_clean.csv"), stringsAsFactors = TRUE)
-
+world <- ne_countries(scale = "medium", returnclass = "sf")
 countries_all <- read.csv(here("data", "countries_aggregated.csv"), stringsAsFactors = TRUE)
 
 
@@ -46,6 +49,8 @@ ui <- navbarPage(
                         uiOutput("variable_2"),
                         br(),
                         helpText("Click while pressing `command/ctrl` in order to choose multiple countries"),
+                        sliderInput("num_countries", "Number of Countries:",
+                                    min = 1, max = length(countries_all$Country), value = 10),
                         uiOutput("country"),
                         br(), hr(),
                         span("Data source:", 
@@ -81,6 +86,10 @@ ui <- navbarPage(
                         h2("Happiness Rank Time Series"),
                         p("This plot shows the changes in happiness ranks of various countries over years."),
                         plotlyOutput("covid_timeseries_plot", height = 800) 
+               ),
+               tabPanel("World Heatmap",
+                        h2("Happiness Rank Heatmap"),
+                        plotlyOutput("world_heatmap", height = 800)
                )
              )
            )
@@ -157,7 +166,8 @@ server <- function(input, output, session) {
   filtered_data <- reactive({
     data_year$data %>% 
       filter(Country %in% c(input$country)) %>% 
-      arrange(Country)
+      arrange(Country) %>%
+      head(input$num_countries)
   })
   
   
@@ -203,6 +213,8 @@ server <- function(input, output, session) {
     p <- ggplot(filtered_data()) +
       geom_point(aes_string(x = input$variable_2, y = input$variable_1, 
                             colour = "Region", label = "Country"), size = 3) +
+      geom_smooth(aes_string(x = input$variable_2, y = input$variable_1), 
+                  method = "lm", color = "black", se = FALSE) +
       ggtitle(paste0(input$variable_1, " vs. ", input$variable_2)) +
       theme_bw() +
       theme(legend.position = "bottom")
@@ -282,9 +294,15 @@ server <- function(input, output, session) {
   output$covid_timeseries_plot <- renderPlotly({
     filtered_covid_data <- covid_years_data %>%
       filter(Country %in% input$country)
+    
+    # Generate a title string that includes selected countries
+    selected_countries <- paste(input$country, collapse = ", ")
+    plot_title <- ifelse(nchar(selected_countries) > 0, 
+                         paste("Happiness Rank Trends for", selected_countries), 
+                         "Happiness Rank Trends")
    #time series plot
     plot_ly(data = filtered_covid_data, x = ~Year, y = ~Happiness.Rank, color = ~Region, type = 'scatter', mode = 'lines+markers') %>%
-      layout(title = list(text = 'Happiness Rank Trends'),
+      layout(title = list(text = plot_title),
              margin = list(t = 50),
              xaxis = list(title = 'Year', tickvals = c('2015','2016','2017','2018','2019','2020', '2021', '2022', '2023'), 
                           ticktext = c('2015','2016','2017','2018','2019','2020', '2021', '2022', '2023')),
@@ -292,7 +310,39 @@ server <- function(input, output, session) {
              hovermode = 'closest')
   })
   
+  world_happiness_data <- reactive({
+    selected_year_data <- switch(data_year$year,
+                                 "2015" = happiness2015,
+                                 "2016" = happiness2016,
+                                 "2017" = happiness2017,
+                                 "2018" = happiness2018,
+                                 "2019" = happiness2019,
+                                 "2020" = happiness2020,
+                                 "2021" = happiness2021,
+                                 "2022" = happiness2022,
+                                 "2023" = happiness2023)
+    
+    world %>% 
+      left_join(selected_year_data, by = c("name" = "Country"))
+  })
+  
+  # Render the heatmap
+  output$world_heatmap <- renderPlotly({
+    ggplot_data <- world_happiness_data()
+    
+    # Create ggplot object with specified hover information
+    p <- ggplot(data = ggplot_data) +
+      geom_sf(aes(fill = Happiness.Rank, geometry = geometry, text = paste("Country:", name, "<br>Happiness Rank:", Happiness.Rank)), color = NA) + 
+      scale_fill_viridis_c() +
+      theme_minimal() +
+      labs(fill = "Happiness Rank", title = paste("World Happiness Map", data_year$year))
+    
+    # Convert to plotly and customize hover information
+    ggplotly(p, tooltip = "text") 
+  })
+  
 }
 
 # Run the application 
 shinyApp(ui = ui, server = server)
+
