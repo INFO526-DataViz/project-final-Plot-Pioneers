@@ -1,7 +1,10 @@
 ---
-title: "Project title"
+title: "World Happiness Report"
 subtitle: "INFO 526 - Fall 2023 - Project Final"
-author: "Author names"
+author: "Team Plot Pioneers : Shalon Walter,
+         Priyarsha Vallabhaneni,
+         Chethana Thondebhavi Shantha Kumar,
+         Athira Thekkemadathil Anilkumar"
 title-slide-attributes:
   data-background-image: images/watercolour_sys02_img34_teacup-ocean.jpg
   data-background-size: stretch
@@ -52,13 +55,28 @@ mtcars$speed <- mtcars$hp / mtcars$wt
 data("penguins")
 ```
 
-# Using Quarto for presentations
+# A Journey through World Happiness 
 
-## Quarto
+## Introduction 
 
--   The presentation is created using the Quarto CLI
+::: incremental
+-   Join us as we take you on a playful and captivating journey to solve the problems of happiness 2015-2023.
+-   Our goal? creating a user-friendly, interactive Shiny app that simplifies complicated ideas and makes finding happiness fun and approachable for everyone.
+:::
 
--   `##` sets the start of a new slide
+## Dataset Description
+
+::: incremental
+-   Published annually by the United Nations.
+
+-    Observations vary from 149 to 158 countries per year.
+
+-    The report considers several key indicators to assess happiness levels, such as income, social support, life expectancy, freedom to make life choices, generosity, and perceptions of corruption.
+:::
+
+## Conclusion
+
+-   
 
 ## Layouts
 
