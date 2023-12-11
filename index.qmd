@@ -10,7 +10,7 @@ editor: visual
 
 Add project abstract here.
 
-```{r}
+```{r include=FALSE}
 df_2015 <- read.csv("data/2015.csv")
 df_2016 <- read.csv("data/2016.csv")
 df_2017 <- read.csv("data/2017.csv")
@@ -496,3 +496,23 @@ write.csv(cl_2023, 'data/happiness_2023_clean.csv', row.names = FALSE)
 
 
 ```
+
+# Question 1: Aspects influencing well-being over time.
+
+## Introduction 
+
+### How do various factors impact the overall happiness score across different countries over the years?
+
+We explore the complex interactions between many elements that affect general well-being in our quest to comprehend happiness on a global scale. We seek to understand how factors, such as economic stability, family support, health, freedom, trust in society, and generosity, affect the overall happiness scores throughout time and in different nations. By enabling users to interact with the data, this exploration reveals the complex connections between these important variables and the pursuit of happiness as a group.
+
+In our pursuit to understand happiness on a global scale, we delve into the intricate interplay of diverse factors that contribute to overall well-being. By examining economic stability, family support, health, freedom, trust in society, and generosity, we aim to discern how these facets influence the overarching happiness scores across different countries and over time. This exploration empowers users to interactively engage with data, unraveling the intricate relationship between these pivotal factors and the collective pursuit of happiness.
+
+## Approach 
+
+In our interactive Shiny application, we offer users an intuitive platform for dynamic data exploration. Featuring three dropdown menus for the x-axis, y-axis, and country selection (allowing multi-country selection), alongside nine buttons for years spanning from 2015 to 2023, users can precisely pinpoint specific years for analysis. Additionally, a slider facilitates the selection of the number of countries to display.
+
+The heart of the app resides in the 'Plot' tab, where users can select any two factors, including the happiness score, for the x and y axes. Each selection generates a data point on the graph, and upon hovering over these points, Plotly provides detailed insights related to the chosen factors and countries. This setup grants users the power to delve into individual factor analyses and country comparisons, fostering a deeper understanding of the data dynamics.
+
+## Analysis
+
+## Discussion 
