@@ -587,17 +587,6 @@ Heavy monsoon rains led to catastrophic flooding in Pakistan, causing massive di
 
 In 2022, Pakistan experienced a significant increase in its happiness rank, signifying a decrease in happiness. This was likely influenced by catastrophic flooding caused by heavy monsoon rains, resulting in displacement and infrastructure damage, which typically lowers overall happiness.
 
-
-### 2023 Global Economic Slowdown:
-
-Affecting various countries differently, but particularly impacting nations with less economic resilience, leading to increased unemployment and social discontent.
-
-![Global Economic Slowdown affecting happiness rank](images/globaltrends_2023.png){fig-align="center" width="512"}
-
-Various countries across the world were impacted. Specifically, countries highly dependent on international trade and with less economic resilience might have experienced greater economic challenges. For instance, countries in Southeast Asia, Latin America, and parts of Africa could have been particularly affected due to disruptions in global supply chains and reduced economic activity. Based on the plot above, Afghanistan seems to be the most affected country.
-
-These events, among others, have played a crucial role in shaping the happiness and well-being of populations across different nations, reflecting the intricate relationship between global events and individual happiness.
-
 ## Conclusion 
 
 The World Happiness Application is not just a tool for data exploration; it is a window into the diverse and dynamic nature of global well-being. It serves as a valuable resource for researchers, policymakers, educators, and anyone interested in the study of happiness. By offering user-driven, interactive data analysis, it empowers users to uncover the complex tapestry of factors that contribute to a happier and more fulfilling global society.
