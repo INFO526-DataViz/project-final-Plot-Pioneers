@@ -8,6 +8,7 @@ library(shinythemes)
 library(here)
 library(sf)
 library(rnaturalearth)
+library(rnaturalearthdata)
 
 
 
@@ -28,7 +29,7 @@ countries_all <- read.csv(here("data", "countries_aggregated.csv"), stringsAsFac
 # Define UI
 ui <- navbarPage(
   theme = shinytheme("cyborg"),
-  title = "World Happiness",
+  title = "World Happiness Analysis",
   tabPanel("Plot",
            sidebarPanel(width = 3,
                         br(),
@@ -94,10 +95,18 @@ ui <- navbarPage(
                         plotlyOutput("world_heatmap", height = 800)
                )
              )
+<<<<<<< HEAD
+           )),
+  
+  tabPanel("About", includeMarkdown(here("about.qmd")))
+  
+=======
            )
   ),
   tabPanel("About", includeMarkdown(here("about.qmd")))
+>>>>>>> 6b43f7b79f22d30c6519b621809900efea56a56b
 )
+
 
 # Define server logic
 server <- function(input, output, session) {
@@ -121,118 +130,126 @@ server <- function(input, output, session) {
   
   # Observers for each year button
   observeEvent(input$button2015, {
-    showModal(modalDialog(
-      title = "Loading",
-      "Please wait while the data is being loaded...",
-      easyClose = TRUE,
-      footer = NULL
-    ))
     data_year$data <- happiness2015
     data_year$year <- "2015"
-    removeModal()
   })
   
   observeEvent(input$button2016, {
+<<<<<<< HEAD
+=======
     showModal(modalDialog(
       title = "Loading",
       "Please wait while the data is being loaded...",
       easyClose = TRUE,
       footer = NULL
     ))
+>>>>>>> 6b43f7b79f22d30c6519b621809900efea56a56b
     data_year$data <- happiness2016
     data_year$year <- "2016"
-    removeModal()
   })
   
   observeEvent(input$button2017, {
+<<<<<<< HEAD
+=======
     showModal(modalDialog(
       title = "Loading",
       "Please wait while the data is being loaded...",
       easyClose = TRUE,
       footer = NULL
     ))
+>>>>>>> 6b43f7b79f22d30c6519b621809900efea56a56b
     data_year$data <- happiness2017
     data_year$year <- "2017"
-    removeModal()
   })
   
   observeEvent(input$button2018, {
+<<<<<<< HEAD
+=======
     showModal(modalDialog(
       title = "Loading",
       "Please wait while the data is being loaded...",
       easyClose = TRUE,
       footer = NULL
     ))
+>>>>>>> 6b43f7b79f22d30c6519b621809900efea56a56b
     data_year$data <- happiness2018
     data_year$year <- "2018"
-    removeModal()
   })
   
   observeEvent(input$button2019, {
+<<<<<<< HEAD
+=======
     showModal(modalDialog(
       title = "Loading",
       "Please wait while the data is being loaded...",
       easyClose = TRUE,
       footer = NULL
     ))
+>>>>>>> 6b43f7b79f22d30c6519b621809900efea56a56b
     data_year$data <- happiness2019
     data_year$year <- "2019"
-    removeModal()
   })
   
   observeEvent(input$button2020, {
+<<<<<<< HEAD
+=======
     showModal(modalDialog(
       title = "Loading",
       "Please wait while the data is being loaded...",
       easyClose = TRUE,
       footer = NULL
     ))
+>>>>>>> 6b43f7b79f22d30c6519b621809900efea56a56b
     data_year$data <- happiness2020
     data_year$year <- "2020"
-    removeModal()
   })
   
   observeEvent(input$button2021, {
+<<<<<<< HEAD
+=======
     showModal(modalDialog(
       title = "Loading",
       "Please wait while the data is being loaded...",
       easyClose = TRUE,
       footer = NULL
     ))
+>>>>>>> 6b43f7b79f22d30c6519b621809900efea56a56b
     data_year$data <- happiness2021
     data_year$year <- "2021"
-    removeModal()
   })
   
   observeEvent(input$button2022, {
+<<<<<<< HEAD
+=======
     showModal(modalDialog(
       title = "Loading",
       "Please wait while the data is being loaded...",
       easyClose = TRUE,
       footer = NULL
     ))
+>>>>>>> 6b43f7b79f22d30c6519b621809900efea56a56b
     data_year$data <- happiness2022
     data_year$year <- "2022"
-    removeModal()
   })
   
   observeEvent(input$button2023, {
+<<<<<<< HEAD
+=======
     showModal(modalDialog(
       title = "Loading",
       "Please wait while the data is being loaded...",
       easyClose = TRUE,
       footer = NULL
     ))
+>>>>>>> 6b43f7b79f22d30c6519b621809900efea56a56b
     data_year$data <- happiness2023
     data_year$year <- "2023"
-    removeModal()
   })
   
   filtered_data <- reactive({
     data_year$data %>% 
       filter(Country %in% c(input$country)) %>% 
-      arrange(Country) %>%
-      head(input$num_countries)
+      arrange(Country) 
   })
   
   
@@ -341,8 +358,6 @@ server <- function(input, output, session) {
                  scrollX = "100%")
   )
   
-  
-  
   covid_years_data <- bind_rows(
     happiness2015 %>% mutate(Year = 2015),
     happiness2016 %>% mutate(Year = 2016),
@@ -361,7 +376,12 @@ server <- function(input, output, session) {
       arrange(Year, Country) %>%
       group_by(Year) %>%
       slice_head(n = input$num_countries) %>%
-      ungroup()
+      ungroup() %>%
+      mutate(Emoji = case_when(
+        Happiness.Score > 6 ~ "\U0001F600", # Smiling face
+        Happiness.Score > 4 ~ "\U0001F642", # Slight smile face
+        TRUE ~ "\U0001F641"  # Sad face
+      ))
     
     
     # Check if "Select All" is chosen and set the title accordingly
@@ -373,14 +393,14 @@ server <- function(input, output, session) {
     }
     
     
-   #time series plot
+    #time series plot
     plot_ly(data = filtered_covid_data, x = ~Year, y = ~Happiness.Rank, color = ~Region, type = 'scatter', mode = 'lines+markers', hoverinfo = 'text',
-            text = ~paste("Country:", Country, "<br>Year:", Year, "<br>Happiness Rank:", Happiness.Rank)) %>%
+            text = ~paste("Country:", Country, "<br>Year:", Year, "<br>Happiness Rank:", Happiness.Rank, Emoji)) %>%
       layout(title = list(text = plot_title),
              margin = list(t = 50),
              xaxis = list(title = 'Year', tickvals = c('2015','2016','2017','2018','2019','2020', '2021', '2022', '2023'), 
                           ticktext = c('2015','2016','2017','2018','2019','2020', '2021', '2022', '2023')),
-             yaxis = list(title = 'Happiness Rank'),
+             yaxis = list(title = 'Happiness Score'),
              hovermode = 'closest')
   })
   
@@ -395,9 +415,16 @@ server <- function(input, output, session) {
                                  "2021" = happiness2021,
                                  "2022" = happiness2022,
                                  "2023" = happiness2023)
+    happiness_data_with_emoji <- selected_year_data %>%
+      mutate(Emoji = case_when(
+        Happiness.Score > 6 ~ "\U0001F600", # Smiling face
+        Happiness.Score > 4 ~ "\U0001F642", # Slight smile face
+        TRUE ~ "\U0001F641"  # Sad face
+      ))
+    
     
     world %>% 
-      left_join(selected_year_data, by = c("name" = "Country"))
+      left_join(happiness_data_with_emoji, by = c("name" = "Country"))
   })
   
   # Render the heatmap
@@ -406,10 +433,10 @@ server <- function(input, output, session) {
     
     # Create ggplot object with specified hover information
     p <- ggplot(data = ggplot_data) +
-      geom_sf(aes(fill = Happiness.Rank, geometry = geometry, text = paste("Country:", name, "<br>Happiness Rank:", Happiness.Rank)), color = NA) + 
+      geom_sf(aes(fill = Happiness.Score, geometry = geometry, text = paste("Country:", name, "<br>Happiness Score:", Happiness.Score, "<br>Happiness Rank:", Happiness.Rank,"<br>", Emoji)), color = NA) + 
       scale_fill_viridis_c() +
       theme_minimal() +
-      labs(fill = "Happiness Rank", title = paste("World Happiness Map", data_year$year))
+      labs(fill = "Happiness Score", title = paste("World Happiness Map", data_year$year))
     
     # Convert to plotly and customize hover information
     ggplotly(p, tooltip = "text")
