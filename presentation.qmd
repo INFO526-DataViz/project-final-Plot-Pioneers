@@ -83,9 +83,9 @@ data("penguins")
 
 ## 2017-2018 US-China Trade War
 
-![](images/china, US trade war.png){fig-align="center" width="1195"}
+![](images/china,%20US%20trade%20war.png){fig-align="center" width="1195"}
 
-##  2022 Pakistan Floods:
+## 2022 Pakistan Floods:
 
 ![](images/pakistan.png){width="1500"}
 
@@ -95,10 +95,12 @@ data("penguins")
 
 ## 2019-2023 COVID-19 Pandemic
 
-![](images/Covid_19.png){fig-align="center" width="1500"}
+![Covid_19 affecting happiness rank](images/covid_19_updated.png){fig-align="center" width="1500"}
 
 ## Conclusion
 
--   
+Based on the provided plots, here are the summarized points reflecting the impact of major events on global happiness:
 
-## 
+1\. The COVID-19 pandemic caused a universal decline in happiness, reflected in the data as a noticeable dip for regions such as Eastern Asia and North America, due to health crises and economic downturns.
+
+2\. Specific events like the US-China Trade War, Brexit, and natural disasters like the Pakistan floods had varied impacts on different regions' happiness rankings, with some experiencing more pronounced fluctuations than others, such as the sharp changes in happiness rank for Pakistan around the time of the floods.

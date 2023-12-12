@@ -497,7 +497,7 @@ write.csv(cl_2023, 'data/happiness_2023_clean.csv', row.names = FALSE)
 
 ```
 
-# Introduction 
+# Introduction
 
 In a world that constantly grapples with various challenges, understanding what contributes to human happiness has never been more crucial. The World Happiness Application is designed to unravel the complexities of what makes societies thrive in terms of happiness and well-being. Drawing upon data from the esteemed World Happiness Report, this interactive Shiny application offers a multifaceted view of global happiness dynamics.
 
@@ -539,7 +539,7 @@ The Happiness Report examining six factors in the year 2019 as an example.
 
 ![](images/corruption.png){width="1169"}
 
-## Discussion 
+## Discussion
 
 Across the temporal spectrum from 2015 to 2023, our observation between Family (social support) and Happiness Score revealed intriguing insights. Initially, higher degrees of family support aligned with notably higher happiness scores. Subsequently, while the scores remained elevated, both the number of instances and the degree of family support slightly decreased. However, a resurgence followed, mirroring the initial phase's trend before experiencing a slight decline towards the end. Overall, this analysis underscores a proportional relationship, emphasizing that increased family support correlates positively with higher happiness scores---a compelling testament to its pivotal role as a contributing factor in fostering well-being.
 
@@ -587,7 +587,6 @@ Heavy monsoon rains led to catastrophic flooding in Pakistan, causing massive di
 
 In 2022, Pakistan experienced a significant increase in its happiness rank, signifying a decrease in happiness. This was likely influenced by catastrophic flooding caused by heavy monsoon rains, resulting in displacement and infrastructure damage, which typically lowers overall happiness.
 
-## Conclusion 
+## Conclusion
 
 The World Happiness Application is not just a tool for data exploration; it is a window into the diverse and dynamic nature of global well-being. It serves as a valuable resource for researchers, policymakers, educators, and anyone interested in the study of happiness. By offering user-driven, interactive data analysis, it empowers users to uncover the complex tapestry of factors that contribute to a happier and more fulfilling global society.
-

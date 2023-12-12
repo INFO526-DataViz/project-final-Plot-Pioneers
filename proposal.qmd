@@ -60,7 +60,7 @@ Multiple annual observations, varying from 149 to 158 countries per year.
 Common variables across dataset:
 
 | Variable name                     | data Type       | description                                                                                                                                                                                                  |
-|---------------|---------------|-------------------------------------------|
+|-----------------------------------|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Country**                       | Character (chr) | The name of the country for which the happiness metrics are recorded.                                                                                                                                        |
 | **Happiness Rank**                | Integer (int)   | The rank of the country is based on its happiness score.                                                                                                                                                     |
 | **Happiness Score**               | Double (dbl)    | The score that quantifies the happiness level, is based on various factors such as GDP per capita, social support, life expectancy, freedom to make life choices, generosity, and perceptions of corruption. |
