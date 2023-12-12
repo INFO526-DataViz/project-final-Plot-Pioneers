@@ -10,8 +10,8 @@
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.3.433">
 
-  <meta name="author" content="Author names">
-  <title>Plot Pioneers - Project title</title>
+  <meta name="author" content="Team Plot Pioneers : Shalon Walter, Priyarsha Vallabhaneni, Chethana Thondebhavi Shantha Kumar, Athira Thekkemadathil Anilkumar">
+  <title>Plot Pioneers - World Happiness Report</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -319,214 +319,88 @@
       margin-right: 0; 
     }
   </style>
-  
-  <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
-  <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-image="images/watercolour_sys02_img34_teacup-ocean.jpg" data-background-opacity="0.7" data-background-size="stretch" data-slide-number="none" class="quarto-title-block center">
-  <h1 class="title">Project title</h1>
+<section id="title-slide" data-background-image="images/smiley.jpg" data-background-opacity="0.7" data-background-size="stretch" data-slide-number="none" class="quarto-title-block center">
+  <h1 class="title">World Happiness Report</h1>
   <p class="subtitle">INFO 526 - Fall 2023 - Project Final</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Author names 
+Team Plot Pioneers : Shalon Walter, Priyarsha Vallabhaneni, Chethana Thondebhavi Shantha Kumar, Athira Thekkemadathil Anilkumar 
 </div>
 </div>
 </div>
 
 </section>
 <section>
-<section id="using-quarto-for-presentations" class="title-slide slide level1 center">
-<h1>Using Quarto for presentations</h1>
+<section id="a-journey-through-world-happiness" class="title-slide slide level1 center">
+<h1>A Journey through World Happiness</h1>
 
 </section>
-<section id="quarto" class="slide level2">
-<h2>Quarto</h2>
+<section id="introduction" class="slide level2">
+<h2>Introduction</h2>
+<div>
 <ul>
-<li><p>The presentation is created using the Quarto CLI</p></li>
-<li><p><code>##</code> sets the start of a new slide</p></li>
+<li class="fragment">The World Happiness Application aims to uncover the keys to societal happiness and well-being, leveraging data from the World Happiness Report.</li>
+<li class="fragment">A user-friendly Shiny app to analyze factors affecting global happiness and visualize worldwide happiness rankings effectively.</li>
+<li class="fragment">Interactive features to explore and understand how various factors influence happiness across different regions globally.</li>
 </ul>
-</section>
-<section id="layouts" class="slide level2">
-<h2>Layouts</h2>
-<p>You can use plain text</p>
-<div class="columns">
-<div class="column" style="width:40%;">
-<ul>
-<li>or bullet points<sup>1</sup></li>
-</ul>
-</div><div class="column" style="width:60%;">
-<p>or in two columns</p>
-</div>
-</div>
-<ul>
-<li><p>like</p></li>
-<li><p>this</p></li>
-</ul>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>And add footnotes</p></li></ol></aside></section>
-<section id="code" class="slide level2">
-<h2>Code</h2>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 5
-  term        estimate std.error statistic       p.value
-  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;
-1 (Intercept)   25.3      3.08        8.22 0.00000000358
-2 speed         -0.116    0.0642     -1.81 0.0806       </code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 12
-  r.squared adj.r.squared sigma statistic p.value    df logLik   AIC   BIC
-      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-1    0.0983        0.0682  5.82      3.27  0.0806     1  -101.  207.  212.
-# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
-</div>
 </div>
 </section>
-<section id="plots" class="slide level2">
-<h2>Plots</h2>
-
-<img data-src="presentation_files/figure-revealjs/unnamed-chunk-5-1.png" width="1800" class="r-stretch"></section>
-<section id="plot-and-text" class="slide level2">
-<h2>Plot and text</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
+<section id="dataset-description" class="slide level2">
+<h2>Dataset Description</h2>
+<div>
 <ul>
-<li><p>Some text</p></li>
-<li><p>goes here</p></li>
+<li class="fragment"><p>Published annually by the United Nations. <a href="https://worldhappiness.report/" class="uri">https://worldhappiness.report/</a></p></li>
+<li class="fragment"><p>Observations vary from 149 to 158 countries per year.</p></li>
+<li class="fragment"><p>The report considers several key indicators to assess happiness levels, such as income, social support, life expectancy, freedom to make life choices, generosity, and perceptions of corruption.</p></li>
 </ul>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="cell-output-display">
-<p><img data-src="presentation_files/figure-revealjs/unnamed-chunk-6-1.png" width="1650"></p>
-</div>
-</div>
-</div>
 </div>
 </section></section>
+<section id="shiny-app" class="title-slide slide level1 center">
+<h1>Shiny App</h1>
+<p><a href="https://plotpioneers.shinyapps.io/happinessstatsapp/" class="uri">https://plotpioneers.shinyapps.io/happinessstatsapp/</a></p>
+</section>
+
 <section>
-<section id="a-new-section" class="title-slide slide level1 center">
-<h1>A new section…</h1>
+<section id="major-events-affecting-happiness-scores-2015-2023" class="title-slide slide level1 center">
+<h1>Major Events Affecting Happiness Scores (2015-2023)</h1>
 
 </section>
-<section id="tables" class="slide level2">
-<h2>Tables</h2>
-<p>If you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,</p>
-<div class="cell">
-<div class="cell-output-display">
-<table class="table" data-quarto-postprocess="true" style="margin-left: auto; margin-right: auto;">
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">species</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">island</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">bill_length_mm</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">bill_depth_mm</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">flipper_length_mm</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">body_mass_g</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">sex</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Adelie</td>
-<td style="text-align: left;">Torgersen</td>
-<td style="text-align: right;">39.1</td>
-<td style="text-align: right;">18.7</td>
-<td style="text-align: right;">181</td>
-<td style="text-align: right;">3750</td>
-<td style="text-align: left;">male</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Adelie</td>
-<td style="text-align: left;">Torgersen</td>
-<td style="text-align: right;">39.5</td>
-<td style="text-align: right;">17.4</td>
-<td style="text-align: right;">186</td>
-<td style="text-align: right;">3800</td>
-<td style="text-align: left;">female</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Adelie</td>
-<td style="text-align: left;">Torgersen</td>
-<td style="text-align: right;">40.3</td>
-<td style="text-align: right;">18.0</td>
-<td style="text-align: right;">195</td>
-<td style="text-align: right;">3250</td>
-<td style="text-align: left;">female</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Adelie</td>
-<td style="text-align: left;">Torgersen</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Adelie</td>
-<td style="text-align: left;">Torgersen</td>
-<td style="text-align: right;">36.7</td>
-<td style="text-align: right;">19.3</td>
-<td style="text-align: right;">193</td>
-<td style="text-align: right;">3450</td>
-<td style="text-align: left;">female</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Adelie</td>
-<td style="text-align: left;">Torgersen</td>
-<td style="text-align: right;">39.3</td>
-<td style="text-align: right;">20.6</td>
-<td style="text-align: right;">190</td>
-<td style="text-align: right;">3650</td>
-<td style="text-align: left;">male</td>
-</tr>
-</tbody>
-</table>
+<section id="us-china-trade-war" class="slide level2">
+<h2>2017-2018 US-China Trade War</h2>
 
+<img data-src="images/china, US trade war.png" width="1195" class="r-stretch quarto-figure-center"></section>
+<section id="pakistan-floods" class="slide level2">
+<h2>2022 Pakistan Floods:</h2>
 
-</div>
-</div>
-</section>
-<section id="images" class="slide level2">
-<h2>Images</h2>
+<img data-src="images/pakistan.png" width="1500" class="r-stretch"></section>
+<section id="brexit-vote" class="slide level2">
+<h2>2016 Brexit Vote</h2>
 
-<img data-src="images/watercolour_sys02_img34_teacup-ocean.png" width="500" class="r-stretch quarto-figure-center"><p class="caption">Image credit: Danielle Navarro, Percolate.</p></section>
-<section id="math-expressions" class="slide level2 smaller">
-<h2>Math Expressions</h2>
-<p>You can write LaTeX math expressions inside a pair of dollar signs, e.g.&nbsp;$\alpha+\beta$ renders <span class="math inline">\(\alpha + \beta\)</span>. You can use the display style with double dollar signs:</p>
-<pre><code>$$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$</code></pre>
-<p><span class="math display">\[
-\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i
-\]</span></p>
-<p>Limitations:</p>
-<ol type="1">
-<li><p>The source code of a LaTeX math expression must be in one line, unless it is inside a pair of double dollar signs, in which case the starting <code>$$</code> must appear in the very beginning of a line, followed immediately by a non-space character, and the ending <code>$$</code> must be at the end of a line, led by a non-space character;</p></li>
-<li><p>There should not be spaces after the opening <code>$</code> or before the closing <code>$</code>.</p></li>
-</ol>
-</section></section>
-<section>
-<section id="wrap-up" class="title-slide slide level1 center">
-<h1>Wrap up</h1>
+<img data-src="images/Uk_2016.png" class="r-stretch quarto-figure-center"></section>
+<section id="covid-19-pandemic" class="slide level2">
+<h2>2019-2023 COVID-19 Pandemic</h2>
 
-</section>
-<section id="feeling-adventurous" class="slide level2">
-<h2>Feeling adventurous?</h2>
+<img data-src="images/Covid_19.png" width="1500" class="r-stretch quarto-figure-center"></section>
+<section id="conclusion" class="slide level2">
+<h2>Conclusion</h2>
 <ul>
-<li><p>You are welcomed to use the default styling of the slides. In fact, that’s what I expect majority of you will do. You will differentiate yourself with the content of your presentation.</p></li>
-<li><p>But some of you might want to play around with slide styling. Some solutions for this can be found at https://quarto.org/docs/presentations/revealjs.</p></li>
+<li></li>
 </ul>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
 
 <div class="footer footer-default">
 
 </div>
 </section></section>
-
     </div>
   </div>
 
