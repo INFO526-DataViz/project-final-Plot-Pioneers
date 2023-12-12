@@ -555,26 +555,6 @@ From 2015 to 2023, a series of major global events significantly impacted the ha
 
 ## Major Events Affecting Happiness Scores (2015-2023):
 
-### 2015-2016 European Refugee Crisis:
-
-Primarily impacted countries in Europe, especially Germany, Sweden, Italy, and Greece, as they faced social and economic challenges due to a significant influx of refugees.
-
-![Plot representing the effect of European Refugee Crisis on happiness ranking](images/European%20Refugee%20Crisis.png){fig-align="center" width="515"}
-
-The graph showcases the Happiness Rank Trends for Germany, Greece, Italy, and Sweden from 2015 to 2023. In the plot, each vertical line represents a year from 2015 to 2023, and the points on those lines indicate the happiness ranks of Greece, Italy, Germany, and Sweden for that particular year, ordered from highest rank (most unhappy) to lowest rank (happiest).
-
-From the graph, we can discern the following insights about the happiness ranks of Greece, Italy, Germany, and Sweden from 2015 to 2023:
-
--   Greece consistently has the highest happiness rank (indicating lower happiness) among the four countries throughout the period, reflecting its economic and social challenges.
-
--   Italy is positioned between Greece and the other two countries, suggesting it has faced issues that have affected its happiness, but not to the extent of Greece.
-
--   Germany ranks better in happiness than Greece and Italy, possibly due to its stronger economy and social support systems.
-
--   Sweden maintains the lowest happiness rank (indicating higher happiness) across the years, likely reflecting its high living standards and robust welfare system.
-
-The order of countries by happiness rank does not change over the years, suggesting stable relative happiness levels despite the refugee crisis and other global events.
-
 ### 2016 Brexit Vote:
 
 The United Kingdom experienced political and economic uncertainty, affecting its happiness scores, as well as indirect impacts on EU member states.
@@ -595,25 +575,9 @@ The 2017-2018 US-China trade war had a significant impact on the happiness ranks
 
 Globally affected all countries, with significant impacts on mental health, economic stability, and overall happiness. Countries like Italy, Spain, the United States, Brazil, and India were among the hardest hit due to high infection and mortality rates.
 
-![Covid-19 effect on happiness rank](images/Covid_19.png){fig-align="center" width="521"}
+![Covid-19 effect on happiness rank](images/covid_19_updated.png){fig-align="center" width="512"}
 
-The graph indicates a general increase in happiness rank for most regions during the COVID-19 pandemic, suggesting a decline in happiness. Some regions show recovery post-pandemic, while others continue to experience lower happiness levels, with varying impacts across different parts of the world.
-
-### 2020 Beirut Explosion:
-
-Lebanon faced a substantial decline in happiness due to the devastating explosion in Beirut, compounding existing economic and political crises.
-
-![Beirut Explosion effect on happiness rank](images/lebanon.png){fig-align="center" width="521"}
-
-The graph displays the trend in Lebanon's happiness rank from 2015 to 2023. In 2020, there is a noticeable increase in Lebanon's happiness rank, which indicates a decrease in happiness, coinciding with the Beirut explosion. This tragic event, along with ongoing economic and political issues, likely contributed to a sharp decline in the well-being and perceived happiness of the Lebanese population.
-
-### 2021 Myanmar Military Coup:
-
-Led to political unrest and human rights issues in Myanmar, affecting the country's overall happiness and stability.
-
-![Myanmar military coup affecting happiness rank](images/myanmar.png){fig-align="center" width="512"}
-
-In 2020-2021, Myanmar experienced a military coup that led to political unrest and widespread protests, which negatively impacted the country's happiness rank due to increased instability and human rights issues.
+The graph indicates a general increase in happiness rank for most regions during the COVID-19 pandemic, suggesting a decline in happiness. Some regions show recovery post-pandemic, while others continue to experience lower happiness levels, with varying impacts across different parts of the world. india, china, Usa
 
 ### 2022 Pakistan Floods:
 
@@ -622,6 +586,7 @@ Heavy monsoon rains led to catastrophic flooding in Pakistan, causing massive di
 ![Pakistan floods affecting happiness rank](images/pakistan.png){fig-align="center" width="512"}
 
 In 2022, Pakistan experienced a significant increase in its happiness rank, signifying a decrease in happiness. This was likely influenced by catastrophic flooding caused by heavy monsoon rains, resulting in displacement and infrastructure damage, which typically lowers overall happiness.
+
 
 ### 2023 Global Economic Slowdown:
 
@@ -636,3 +601,4 @@ These events, among others, have played a crucial role in shaping the happiness 
 ## Conclusion 
 
 The World Happiness Application is not just a tool for data exploration; it is a window into the diverse and dynamic nature of global well-being. It serves as a valuable resource for researchers, policymakers, educators, and anyone interested in the study of happiness. By offering user-driven, interactive data analysis, it empowers users to uncover the complex tapestry of factors that contribute to a happier and more fulfilling global society.
+
