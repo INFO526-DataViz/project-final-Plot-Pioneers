@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -89,7 +89,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -240,9 +241,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Common variables across dataset:</p>
 <table class="table">
 <colgroup>
-<col style="width: 13%">
-<col style="width: 6%">
-<col style="width: 79%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 67%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -357,11 +358,10 @@ $ Year                            &lt;dbl&gt; 2015, 2015, 2015, 2015, 2015, 2015
 <h3 class="anchored" data-anchor-id="approach-for-question-1">Approach for Question 1</h3>
 <p>The different factors involved are as follows : economy (“GDP per capita”), family (“social support”), health(“healthy life expectancy at birth”), freedom (“freedom to make life choices”), trust(“perceptions of corruption”) and genorosity (“genorosity”).</p>
 <ul>
-<li><p><strong>Objective :</strong> The aim is to enable users to interactively explore the impact of different factors on happiness scores by selecting specific years and countries.</p></li>
-<li><p><strong>Interactive Widgets:</strong> Adding user interface with two key drop-down menus, one for selecting the year and the other for choosing a specific country. This allows users to customize their data exploration.</p></li>
-<li><p><strong>Visualization:</strong> Chart Selection - Planning to create a Grouped Bar chart for visualizing the contributions of different factors to the overall happiness score. In this chart, each factor is represented by a separate bar, and the height of each bar corresponds to its contribution to the overall happiness score. Also panning to expand the analysis by introducing a stacked bar plot. This plot adds a layer of depth to the analysis by visually representing how multiple factors contribute to the overall happiness score within the same bar, allowing users to see the combined effect of these factors.</p></li>
+<li><p><strong>Objective:</strong> Enable users to interactively explore the impact of different variables on happiness scores using a customized interface. The app will feature three dropdown menus: one for selecting countries, one for the x-axis variable, and another for the y-axis variable.</p></li>
+<li><p><strong>Visualization:</strong> The app will present a customizable scatter plot. Users can select specific years using buttons to display a single point on the graph. Hovering over each point will reveal detailed information about the chosen variables for that point.</p></li>
+<li><p><strong>Insights and Exploration:</strong> The goal is to identify consistent factors impacting happiness scores across countries and years by allowing users to dynamically visualize and explore data points.</p></li>
 </ul>
-<p>Insights and Exploration: Observing and Highlighting factors that consistently impact happiness scores across different countries&nbsp;and&nbsp;years.</p>
 </section>
 <section id="approach-for-question-2" class="level3">
 <h3 class="anchored" data-anchor-id="approach-for-question-2">Approach for Question 2</h3>
