@@ -55,9 +55,9 @@ mtcars$speed <- mtcars$hp / mtcars$wt
 data("penguins")
 ```
 
-# A Journey through World Happiness 
+# A Journey through World Happiness
 
-## Introduction 
+## Introduction
 
 ::: incremental
 -   Join us as we take you on a playful and captivating journey to solve the problems of happiness 2015-2023.
@@ -69,9 +69,9 @@ data("penguins")
 ::: incremental
 -   Published annually by the United Nations.
 
--    Observations vary from 149 to 158 countries per year.
+-   Observations vary from 149 to 158 countries per year.
 
--    The report considers several key indicators to assess happiness levels, such as income, social support, life expectancy, freedom to make life choices, generosity, and perceptions of corruption.
+-   The report considers several key indicators to assess happiness levels, such as income, social support, life expectancy, freedom to make life choices, generosity, and perceptions of corruption.
 :::
 
 ## Conclusion
