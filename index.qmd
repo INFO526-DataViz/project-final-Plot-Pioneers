@@ -10,7 +10,7 @@ editor: visual
 
 This project focuses on developing an interactive Shiny application to transform the intricate data from the World Happiness Report into an accessible and engaging platform for a diverse audience. While the report offers valuable insights into the happiness and well-being of individuals across countries, the complexity of the data often poses challenges in interpretation. Our objective is to simplify this process by creating an intuitive and user-friendly app that dynamically visualizes the data. The driving force behind our initiative is to bridge the gap between the richness of complex data and end-users seeking comprehension.
 
-```{r include=FALSE}
+```{r echo=FALSE, results='hide',include=FALSE}
 df_2015 <- read.csv("data/2015.csv")
 df_2016 <- read.csv("data/2016.csv")
 df_2017 <- read.csv("data/2017.csv")
@@ -328,7 +328,7 @@ str(happiness_all_years_df)
 
 ```
 
-```{r}
+```{r echo=FALSE, results='hide',include=FALSE}
 # Load necessary libraries
 library(dplyr)
 
@@ -363,7 +363,7 @@ head(df_combined)
 write.csv(df_combined, 'data/updated_happiness_all_years.csv', row.names = FALSE)
 ```
 
-```{r}
+```{r echo=FALSE, results='hide',include=FALSE}
 
 
 #2015
