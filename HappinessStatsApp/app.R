@@ -9,6 +9,8 @@ library(here)
 library(sf)
 library(rnaturalearth)
 
+
+
 # Load datasets for each year
 happiness2015 <- read.csv(here("data", "happiness_2015_clean.csv"), stringsAsFactors = TRUE)
 happiness2016 <- read.csv(here("data", "happiness_2016_clean.csv"), stringsAsFactors = TRUE)
@@ -94,7 +96,7 @@ ui <- navbarPage(
              )
            )
   ),
-  tabPanel("About", includeMarkdown("docs/About.md"))
+  tabPanel("About", includeMarkdown(here("about.qmd")))
 )
 
 # Define server logic
@@ -276,8 +278,7 @@ server <- function(input, output, session) {
     p <- ggplot(filtered_data()) +
       geom_point(aes_string(x = input$variable_2, y = input$variable_1, 
                             colour = "Region", label = "Country"), size = 3) +
-      geom_smooth(aes_string(x = input$variable_2, y = input$variable_1), 
-                  method = "lm", color = "black", se = FALSE) +
+      geom_smooth(aes_string(x = input$variable_2, y = input$variable_1), method = "lm", color = "black", se = FALSE) +
       ggtitle(paste0(input$variable_1, " vs. ", input$variable_2)) +
       theme_bw() +
       theme(legend.position = "bottom")

@@ -1,0 +1,12 @@
+name: HappinessStatsApp
+title: HappinessStatsApp
+username: chethanats
+account: chethanats
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 10778688
+bundleId: 8038545
+url: https://chethanats.shinyapps.io/HappinessStatsApp/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
