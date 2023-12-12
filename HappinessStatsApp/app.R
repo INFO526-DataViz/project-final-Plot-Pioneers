@@ -95,16 +95,8 @@ ui <- navbarPage(
                         plotlyOutput("world_heatmap", height = 800)
                )
              )
-<<<<<<< HEAD
            )),
-  
   tabPanel("About", includeMarkdown(here("about.qmd")))
-  
-=======
-           )
-  ),
-  tabPanel("About", includeMarkdown(here("about.qmd")))
->>>>>>> 6b43f7b79f22d30c6519b621809900efea56a56b
 )
 
 
@@ -135,113 +127,103 @@ server <- function(input, output, session) {
   })
   
   observeEvent(input$button2016, {
-<<<<<<< HEAD
-=======
     showModal(modalDialog(
       title = "Loading",
       "Please wait while the data is being loaded...",
       easyClose = TRUE,
       footer = NULL
     ))
->>>>>>> 6b43f7b79f22d30c6519b621809900efea56a56b
+    
     data_year$data <- happiness2016
     data_year$year <- "2016"
   })
   
   observeEvent(input$button2017, {
-<<<<<<< HEAD
-=======
+    
     showModal(modalDialog(
       title = "Loading",
       "Please wait while the data is being loaded...",
       easyClose = TRUE,
       footer = NULL
     ))
->>>>>>> 6b43f7b79f22d30c6519b621809900efea56a56b
     data_year$data <- happiness2017
     data_year$year <- "2017"
   })
   
   observeEvent(input$button2018, {
-<<<<<<< HEAD
-=======
+    
     showModal(modalDialog(
       title = "Loading",
       "Please wait while the data is being loaded...",
       easyClose = TRUE,
       footer = NULL
     ))
->>>>>>> 6b43f7b79f22d30c6519b621809900efea56a56b
+    
     data_year$data <- happiness2018
     data_year$year <- "2018"
   })
   
   observeEvent(input$button2019, {
-<<<<<<< HEAD
-=======
+    
     showModal(modalDialog(
       title = "Loading",
       "Please wait while the data is being loaded...",
       easyClose = TRUE,
       footer = NULL
     ))
->>>>>>> 6b43f7b79f22d30c6519b621809900efea56a56b
+    
     data_year$data <- happiness2019
     data_year$year <- "2019"
   })
   
   observeEvent(input$button2020, {
-<<<<<<< HEAD
-=======
+    
     showModal(modalDialog(
       title = "Loading",
       "Please wait while the data is being loaded...",
       easyClose = TRUE,
       footer = NULL
     ))
->>>>>>> 6b43f7b79f22d30c6519b621809900efea56a56b
+    
     data_year$data <- happiness2020
     data_year$year <- "2020"
   })
   
   observeEvent(input$button2021, {
-<<<<<<< HEAD
-=======
+    
     showModal(modalDialog(
       title = "Loading",
       "Please wait while the data is being loaded...",
       easyClose = TRUE,
       footer = NULL
     ))
->>>>>>> 6b43f7b79f22d30c6519b621809900efea56a56b
+    
     data_year$data <- happiness2021
     data_year$year <- "2021"
   })
   
   observeEvent(input$button2022, {
-<<<<<<< HEAD
-=======
+    
     showModal(modalDialog(
       title = "Loading",
       "Please wait while the data is being loaded...",
       easyClose = TRUE,
       footer = NULL
     ))
->>>>>>> 6b43f7b79f22d30c6519b621809900efea56a56b
+    
     data_year$data <- happiness2022
     data_year$year <- "2022"
   })
   
   observeEvent(input$button2023, {
-<<<<<<< HEAD
-=======
+    
     showModal(modalDialog(
       title = "Loading",
       "Please wait while the data is being loaded...",
       easyClose = TRUE,
       footer = NULL
     ))
->>>>>>> 6b43f7b79f22d30c6519b621809900efea56a56b
+    
     data_year$data <- happiness2023
     data_year$year <- "2023"
   })
