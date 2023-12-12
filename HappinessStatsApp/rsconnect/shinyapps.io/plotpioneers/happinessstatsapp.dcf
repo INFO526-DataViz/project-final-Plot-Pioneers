@@ -5,6 +5,6 @@ account: plotpioneers
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 10779936
-bundleId: 8039203
+bundleId: 8039756
 url: https://plotpioneers.shinyapps.io/happinessstatsapp/
 version: 1

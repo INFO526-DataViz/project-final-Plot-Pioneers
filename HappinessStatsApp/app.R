@@ -73,6 +73,12 @@ ui <- navbarPage(
                         h2(textOutput("year_name_plot")),
                         plotlyOutput("scatterplot", height = 800)
                ),
+               tabPanel("Trend Comparison",
+                        fluidRow(
+                          column(6, plotlyOutput("timeSeriesPlot1", height = 600, width = 465)),
+                          column(6, plotlyOutput("timeSeriesPlot2", height = 600, width = 465))
+                        )
+               ),
                tabPanel("Table", 
                         br(),
                         DT::dataTableOutput("results_table")
@@ -421,6 +427,48 @@ server <- function(input, output, session) {
       labs(fill = "Happiness Score", title = paste("World Happiness Map", data_year$year))
     
     # Convert to plotly and customize hover information
+    ggplotly(p, tooltip = "text")
+  })
+  
+  output$timeSeriesPlot1 <- renderPlotly({
+    # Plot for the selected Y-variable
+    selected_var <- input$variable_1  
+    
+    plot_data <- covid_years_data %>%
+      filter(Country %in% input$country) %>%
+      select(Year, Country, !!sym(selected_var), Happiness.Rank)
+    
+    p <- ggplot(plot_data, aes(x = Year, y = !!sym(selected_var), color = Country)) +
+      geom_line() +
+      geom_point(aes(text = paste("Year:", Year, "<br>",
+                                  "Country:", Country, "<br>",
+                                  selected_var, ":", !!sym(selected_var), "<br>",
+                                  "Happiness Rank:", Happiness.Rank))) +
+      scale_x_continuous(breaks = unique(plot_data$Year)) +
+      theme_minimal() +
+      theme(legend.position = "none") +
+      labs(title = paste("Time Series of", selected_var))
+    
+    ggplotly(p, tooltip = "text")
+  })
+  
+  output$timeSeriesPlot2 <- renderPlotly({
+    # Plot for the happiness rank
+    plot_data <- covid_years_data %>%
+      filter(Country %in% input$country) %>%
+      select(Year, Country, Happiness.Score, Happiness.Rank)
+    
+    p <- ggplot(plot_data, aes(x = Year, y = Happiness.Score, color = Country)) +
+      geom_line() +
+      geom_point(aes(text = paste("Year:", Year, "<br>",
+                                  "Country:", Country, "<br>",
+                                  "Happiness Score:", Happiness.Score, "<br>",
+                                  "Happiness Rank:", Happiness.Rank))) +
+      scale_x_continuous(breaks = unique(plot_data$Year)) + 
+      theme_minimal() + 
+      theme(legend.position = "none") +
+      labs(title = "Time Series of Happiness Score")
+    
     ggplotly(p, tooltip = "text")
   })
 }
