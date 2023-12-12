@@ -6,7 +6,7 @@ author: "Team Plot Pioneers : Shalon Walter,
          Chethana Thondebhavi Shantha Kumar,
          Athira Thekkemadathil Anilkumar"
 title-slide-attributes:
-  data-background-image: images/watercolour_sys02_img34_teacup-ocean.jpg
+  data-background-image: images/smiley.jpg
   data-background-size: stretch
   data-background-opacity: "0.7"
   data-slide-number: none
@@ -60,124 +60,45 @@ data("penguins")
 ## Introduction
 
 ::: incremental
--   Join us as we take you on a playful and captivating journey to solve the problems of happiness 2015-2023.
--   Our goal? creating a user-friendly, interactive Shiny app that simplifies complicated ideas and makes finding happiness fun and approachable for everyone.
+-   The World Happiness Application aims to uncover the keys to societal happiness and well-being, leveraging data from the World Happiness Report.
+-   A user-friendly Shiny app to analyze factors affecting global happiness and visualize worldwide happiness rankings effectively.
+-   Interactive features to explore and understand how various factors influence happiness across different regions globally.
 :::
 
 ## Dataset Description
 
 ::: incremental
--   Published annually by the United Nations.
+-   Published annually by the United Nations. <https://worldhappiness.report/>
 
 -   Observations vary from 149 to 158 countries per year.
 
 -   The report considers several key indicators to assess happiness levels, such as income, social support, life expectancy, freedom to make life choices, generosity, and perceptions of corruption.
 :::
 
+# Shiny App
+
+<https://plotpioneers.shinyapps.io/happinessstatsapp/>
+
+# Major Events Affecting Happiness Scores (2015-2023)
+
+## 2017-2018 US-China Trade War
+
+![](images/china, US trade war.png){fig-align="center" width="1195"}
+
+##  2022 Pakistan Floods:
+
+![](images/pakistan.png){width="1500"}
+
+## 2016 Brexit Vote
+
+![](images/Uk_2016.png){fig-align="center"}
+
+## 2019-2023 COVID-19 Pandemic
+
+![](images/Covid_19.png){fig-align="center" width="1500"}
+
 ## Conclusion
 
 -   
 
-## Layouts
-
-You can use plain text
-
-::: columns
-::: {.column width="40%"}
--   or bullet points[^1]
-:::
-
-::: {.column width="60%"}
-or in two columns
-:::
-:::
-
-[^1]: And add footnotes
-
--   like
-
--   this
-
-## Code
-
-```{r, echo=FALSE}
-model <- lm(mpg ~ speed, data = mtcars) 
-
-model |> tidy()
-
-model |> glance()
-
-```
-
-## Plots
-
-```{r}
-penguins |>
-  mutate(species = ifelse(species == "Adelie", "Adelie", "Other")) |>
-  ggplot(aes(x = flipper_length_mm, y = body_mass_g, color = species)) +
-  geom_point()
-```
-
-## Plot and text
-
-::: columns
-::: {.column width="50%"}
--   Some text
-
--   goes here
-:::
-
-::: {.column width="50%"}
-```{r, warning=FALSE, fig.width=5.5}
-penguins |>
-  ggplot(aes(x = bill_length_mm, y = species, color = species)) +
-  geom_boxplot(linewidth = 0.75,
-               outlier.size = 2.5) +
-  theme_minimal(base_size = 15) +
-  theme(legend.key.size = unit(0.8, "cm"))
-```
-:::
-:::
-
-# A new section...
-
-## Tables
-
-If you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,
-
-```{r}
-penguins |> 
-  head() |>
-  kableExtra::kable() |>
-  kableExtra::kable_styling()
-```
-
-## Images
-
-![Image credit: Danielle Navarro, Percolate.](images/watercolour_sys02_img34_teacup-ocean.png){fig-align="center" width="500"}
-
-## Math Expressions {.smaller}
-
-You can write LaTeX math expressions inside a pair of dollar signs, e.g. \$\\alpha+\\beta\$ renders $\alpha + \beta$. You can use the display style with double dollar signs:
-
-```         
-$$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$
-```
-
-$$
-\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i
-$$
-
-Limitations:
-
-1.  The source code of a LaTeX math expression must be in one line, unless it is inside a pair of double dollar signs, in which case the starting `$$` must appear in the very beginning of a line, followed immediately by a non-space character, and the ending `$$` must be at the end of a line, led by a non-space character;
-
-2.  There should not be spaces after the opening `$` or before the closing `$`.
-
-# Wrap up
-
-## Feeling adventurous?
-
--   You are welcomed to use the default styling of the slides. In fact, that's what I expect majority of you will do. You will differentiate yourself with the content of your presentation.
-
--   But some of you might want to play around with slide styling. Some solutions for this can be found at https://quarto.org/docs/presentations/revealjs.
+## 

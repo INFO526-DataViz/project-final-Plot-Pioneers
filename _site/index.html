@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -90,7 +90,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -133,7 +134,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/INFO526-DataViz/project-01" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/INFO526-DataViz/project-final-Plot-Pioneers" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -154,9 +155,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#question-1-aspects-influencing-well-being-over-time." id="toc-question-1-aspects-influencing-well-being-over-time." class="nav-link" data-scroll-target="#question-1-aspects-influencing-well-being-over-time.">Question 1: Aspects influencing well-being over time.</a>
   <ul class="collapse">
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a>
+  <li><a href="#introduction-1" id="toc-introduction-1" class="nav-link" data-scroll-target="#introduction-1">Introduction</a>
   <ul class="collapse">
   <li><a href="#how-do-various-factors-impact-the-overall-happiness-score-across-different-countries-over-the-years" id="toc-how-do-various-factors-impact-the-overall-happiness-score-across-different-countries-over-the-years" class="nav-link" data-scroll-target="#how-do-various-factors-impact-the-overall-happiness-score-across-different-countries-over-the-years">How do various factors impact the overall happiness score across different countries over the years?</a></li>
   </ul></li>
@@ -166,17 +168,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#question-2-patterns-of-change-in-happiness-scores-related-to-global-events." id="toc-question-2-patterns-of-change-in-happiness-scores-related-to-global-events." class="nav-link" data-scroll-target="#question-2-patterns-of-change-in-happiness-scores-related-to-global-events.">Question 2: Patterns of change in happiness scores related to global events.</a>
   <ul class="collapse">
-  <li><a href="#major-events-affecting-happiness-scores-2015-2023" id="toc-major-events-affecting-happiness-scores-2015-2023" class="nav-link" data-scroll-target="#major-events-affecting-happiness-scores-2015-2023"><strong>Major Events Affecting Happiness Scores (2015-2023):</strong></a>
+  <li><a href="#major-events-affecting-happiness-scores-2015-2023" id="toc-major-events-affecting-happiness-scores-2015-2023" class="nav-link" data-scroll-target="#major-events-affecting-happiness-scores-2015-2023">Major Events Affecting Happiness Scores (2015-2023):</a>
   <ul class="collapse">
-  <li><a href="#european-refugee-crisis" id="toc-european-refugee-crisis" class="nav-link" data-scroll-target="#european-refugee-crisis"><strong>2015-2016 European Refugee Crisis:</strong></a></li>
-  <li><a href="#brexit-vote" id="toc-brexit-vote" class="nav-link" data-scroll-target="#brexit-vote"><strong>2016 Brexit Vote:</strong></a></li>
-  <li><a href="#us-china-trade-war" id="toc-us-china-trade-war" class="nav-link" data-scroll-target="#us-china-trade-war"><strong>2017-2018 US-China Trade War:</strong></a></li>
-  <li><a href="#covid-19-pandemic" id="toc-covid-19-pandemic" class="nav-link" data-scroll-target="#covid-19-pandemic"><strong>2019-2023 COVID-19 Pandemic:</strong></a></li>
-  <li><a href="#beirut-explosion" id="toc-beirut-explosion" class="nav-link" data-scroll-target="#beirut-explosion"><strong>2020 Beirut Explosion:</strong></a></li>
-  <li><a href="#myanmar-military-coup" id="toc-myanmar-military-coup" class="nav-link" data-scroll-target="#myanmar-military-coup"><strong>2021 Myanmar Military Coup:</strong></a></li>
-  <li><a href="#pakistan-floods" id="toc-pakistan-floods" class="nav-link" data-scroll-target="#pakistan-floods"><strong>2022 Pakistan Floods</strong>:</a></li>
-  <li><a href="#global-economic-slowdown" id="toc-global-economic-slowdown" class="nav-link" data-scroll-target="#global-economic-slowdown"><strong>2023 Global Economic Slowdown:</strong></a></li>
+  <li><a href="#brexit-vote" id="toc-brexit-vote" class="nav-link" data-scroll-target="#brexit-vote">2016 Brexit Vote:</a></li>
+  <li><a href="#us-china-trade-war" id="toc-us-china-trade-war" class="nav-link" data-scroll-target="#us-china-trade-war">2017-2018 US-China Trade War:</a></li>
+  <li><a href="#covid-19-pandemic" id="toc-covid-19-pandemic" class="nav-link" data-scroll-target="#covid-19-pandemic">2019-2023 COVID-19 Pandemic:</a></li>
+  <li><a href="#pakistan-floods" id="toc-pakistan-floods" class="nav-link" data-scroll-target="#pakistan-floods">2022 Pakistan Floods:</a></li>
+  <li><a href="#global-economic-slowdown" id="toc-global-economic-slowdown" class="nav-link" data-scroll-target="#global-economic-slowdown">2023 Global Economic Slowdown:</a></li>
   </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -210,7 +210,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="abstract" class="level2">
 <h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
-<p>Add project abstract here.</p>
+<p>This project focuses on developing an interactive Shiny application to transform the intricate data from the World Happiness Report into an accessible and engaging platform for a diverse audience. While the report offers valuable insights into the happiness and well-being of individuals across countries, the complexity of the data often poses challenges in interpretation. Our objective is to simplify this process by creating an intuitive and user-friendly app that dynamically visualizes the data. The driving force behind our initiative is to bridge the gap between the richness of complex data and end-users seeking comprehension.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
@@ -550,10 +550,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(cl_2023, <span class="st">'data/happiness_2023_clean.csv'</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>In a world that constantly grapples with various challenges, understanding what contributes to human happiness has never been more crucial. The World Happiness Application is designed to unravel the complexities of what makes societies thrive in terms of happiness and well-being. Drawing upon data from the esteemed World Happiness Report, this interactive Shiny application offers a multifaceted view of global happiness dynamics.</p>
+<p>The application is built on a foundation of robust and clean data, sourced from the comprehensive annual reports that explore the state of global happiness. These reports rank countries based on several happiness indicators including economic factors like GDP per capita, social factors like family and community support, health life expectancy, personal freedom, perceived government and business corruption, and generosity. By amalgamating data from the years 2015 to 2023, our application provides a unique longitudinal perspective on how happiness indices have evolved globally.</p>
+<p>One of the core features of the World Happiness Application is its interactivity and user-friendly interface, developed using R Shiny, a powerful web application framework. Users can engage with a variety of data visualizations, including scatter plots, time series graphs, and heatmaps, to delve deeper into the happiness trends of different countries and regions. Each visualization is designed to be both informative and intuitive, offering users the flexibility to select specific years, countries, and happiness variables for comparison.</p>
+<p>A key aspect of the application is the “Happiness Trends” plot, which visualizes how the happiness ranks of various countries have shifted over the years, providing insights into the trajectories of nations in their pursuit of well-being. Another highlight is the “World Heatmap,” a choropleth map that vividly depicts happiness rankings across the globe, inviting users to explore geographical patterns in happiness.</p>
+</section>
 <section id="question-1-aspects-influencing-well-being-over-time." class="level1">
 <h1>Question 1: Aspects influencing well-being over time.</h1>
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<section id="introduction-1" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-1">Introduction</h2>
 <section id="how-do-various-factors-impact-the-overall-happiness-score-across-different-countries-over-the-years" class="level3">
 <h3 class="anchored" data-anchor-id="how-do-various-factors-impact-the-overall-happiness-score-across-different-countries-over-the-years">How do various factors impact the overall happiness score across different countries over the years?</h3>
 <p>We explore the complex interactions between many elements that affect general well-being in our quest to comprehend happiness on a global scale. We seek to understand how factors, such as economic stability, family support, health, freedom, trust in society, and generosity, affect the overall happiness scores throughout time and in different nations. By enabling users to interact with the data, this exploration reveals the complex connections between these important variables and the pursuit of happiness as a group.</p>
@@ -567,37 +574,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="analysis" class="level2">
 <h2 class="anchored" data-anchor-id="analysis">Analysis</h2>
+<p>The Happiness Report examining six factors in the year 2019 as an example.</p>
+<p><img src="images/family.png" class="img-fluid" width="1159"></p>
+<p><img src="images/economy.png" class="img-fluid" width="1155"></p>
+<p><img src="images/freedom.png" class="img-fluid" width="1148"></p>
+<p><img src="images/generosity.png" class="img-fluid" width="1167"></p>
+<p><img src="images/health.png" class="img-fluid" width="1164"></p>
+<p><img src="images/corruption.png" class="img-fluid" width="1169"></p>
 </section>
 <section id="discussion" class="level2">
 <h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
+<p>Across the temporal spectrum from 2015 to 2023, our observation between Family (social support) and Happiness Score revealed intriguing insights. Initially, higher degrees of family support aligned with notably higher happiness scores. Subsequently, while the scores remained elevated, both the number of instances and the degree of family support slightly decreased. However, a resurgence followed, mirroring the initial phase’s trend before experiencing a slight decline towards the end. Overall, this analysis underscores a proportional relationship, emphasizing that increased family support correlates positively with higher happiness scores—a compelling testament to its pivotal role as a contributing factor in fostering well-being.</p>
+<p>The correlation between health and happiness scores appears relatively consistent from 2015 to 2023, showing limited variations. Western European countries consistently maintain top positions, while Sub-Saharan African nations consistently rank at the bottom in this regard. Over the years, a clear pattern emerged: as the economy (GDP per capita) grew, so did happiness scores. Though the intensity varied, the trend remained consistent. In 2022, this link intensified, indicating a proportional relationship between a thriving economy and higher happiness.</p>
+<p>When comparing Trust (government corruption) and Happiness Score across countries, intriguing trends emerged. Western European nations like Finland, Denmark, Switzerland, and Sweden showed higher corruption levels but sustained higher happiness. Conversely, countries like New Zealand, Singapore, and Qatar followed a similar pattern. Rwanda depicted the highest corruption and lowest happiness, while Sub-Saharan and some Eastern European nations showcased lower corruption but also lower happiness levels overall.</p>
+<p>Upon analyzing the relationship between happiness scores and freedom, it’s evident that since 2019, Afghanistan consistently exhibits the lowest happiness score. Meanwhile, the Western European region consistently maintains a top-ranking position in happiness scores from 2015 to 2023. When examining the correlation between happiness scores and generosity, it becomes evident that Finland consistently secures the top position throughout the years 2015 to 2023 in terms of happiness scores.</p>
 </section>
 </section>
 <section id="question-2-patterns-of-change-in-happiness-scores-related-to-global-events." class="level1">
 <h1>Question 2: Patterns of change in happiness scores related to global events.</h1>
 <p>From 2015 to 2023, a series of major global events significantly impacted the happiness scores of various countries. These events, ranging from economic crises to geopolitical conflicts and health emergencies, have caused notable fluctuations in global happiness levels. In this brief introduction, we will list some of these key events and identify the countries most affected by them.</p>
 <section id="major-events-affecting-happiness-scores-2015-2023" class="level2">
-<h2 class="anchored" data-anchor-id="major-events-affecting-happiness-scores-2015-2023"><strong>Major Events Affecting Happiness Scores (2015-2023):</strong></h2>
-<section id="european-refugee-crisis" class="level3">
-<h3 class="anchored" data-anchor-id="european-refugee-crisis"><strong>2015-2016 European Refugee Crisis:</strong></h3>
-<p>Primarily impacted countries in Europe, especially Germany, Sweden, Italy, and Greece, as they faced social and economic challenges due to a significant influx of refugees.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/European Refugee Crisis.png" class="img-fluid figure-img" width="515"></p>
-<figcaption class="figure-caption">Plot representing the effect of European Refugee Crisis on happiness ranking</figcaption>
-</figure>
-</div>
-<p>The graph showcases the Happiness Rank Trends for Germany, Greece, Italy, and Sweden from 2015 to 2023. In the plot, each vertical line represents a year from 2015 to 2023, and the points on those lines indicate the happiness ranks of Greece, Italy, Germany, and Sweden for that particular year, ordered from highest rank (most unhappy) to lowest rank (happiest).</p>
-<p>From the graph, we can discern the following insights about the happiness ranks of Greece, Italy, Germany, and Sweden from 2015 to 2023:</p>
-<ul>
-<li><p>Greece consistently has the highest happiness rank (indicating lower happiness) among the four countries throughout the period, reflecting its economic and social challenges.</p></li>
-<li><p>Italy is positioned between Greece and the other two countries, suggesting it has faced issues that have affected its happiness, but not to the extent of Greece.</p></li>
-<li><p>Germany ranks better in happiness than Greece and Italy, possibly due to its stronger economy and social support systems.</p></li>
-<li><p>Sweden maintains the lowest happiness rank (indicating higher happiness) across the years, likely reflecting its high living standards and robust welfare system.</p></li>
-</ul>
-<p>The order of countries by happiness rank does not change over the years, suggesting stable relative happiness levels despite the refugee crisis and other global events.</p>
-</section>
+<h2 class="anchored" data-anchor-id="major-events-affecting-happiness-scores-2015-2023">Major Events Affecting Happiness Scores (2015-2023):</h2>
 <section id="brexit-vote" class="level3">
-<h3 class="anchored" data-anchor-id="brexit-vote"><strong>2016 Brexit Vote:</strong></h3>
+<h3 class="anchored" data-anchor-id="brexit-vote">2016 Brexit Vote:</h3>
 <p>The United Kingdom experienced political and economic uncertainty, affecting its happiness scores, as well as indirect impacts on EU member states.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -608,7 +607,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In 2016, the graph shows that the happiness rank for the United Kingdom increased, indicating a decrease in happiness. This is likely due to the uncertainty and division caused by the Brexit vote, as it introduced concerns about the UK’s economic future and its citizens’ identity within Europe. Such socio-political events typically create anxiety and can negatively impact the overall mood of the nation.</p>
 </section>
 <section id="us-china-trade-war" class="level3">
-<h3 class="anchored" data-anchor-id="us-china-trade-war"><strong>2017-2018 US-China Trade War:</strong></h3>
+<h3 class="anchored" data-anchor-id="us-china-trade-war">2017-2018 US-China Trade War:</h3>
 <p>Led to economic repercussions in the United States and China, as well as in countries with strong trade ties to these nations.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -619,40 +618,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The 2017-2018 US-China trade war had a significant impact on the happiness ranks of both countries. It led to economic uncertainties, job losses, and disrupted trade, which can contribute to decreased happiness among the population. The trade war also affected global economic stability, indirectly influencing happiness ranks in other nations closely tied to the US-China trade relationship.</p>
 </section>
 <section id="covid-19-pandemic" class="level3">
-<h3 class="anchored" data-anchor-id="covid-19-pandemic"><strong>2019-2023 COVID-19 Pandemic:</strong></h3>
+<h3 class="anchored" data-anchor-id="covid-19-pandemic">2019-2023 COVID-19 Pandemic:</h3>
 <p>Globally affected all countries, with significant impacts on mental health, economic stability, and overall happiness. Countries like Italy, Spain, the United States, Brazil, and India were among the hardest hit due to high infection and mortality rates.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/Covid_19.png" class="img-fluid figure-img" width="521"></p>
+<p><img src="images/covid_19_updated.png" class="img-fluid figure-img" width="512"></p>
 <figcaption class="figure-caption">Covid-19 effect on happiness rank</figcaption>
 </figure>
 </div>
-<p>The graph indicates a general increase in happiness rank for most regions during the COVID-19 pandemic, suggesting a decline in happiness. Some regions show recovery post-pandemic, while others continue to experience lower happiness levels, with varying impacts across different parts of the world.</p>
-</section>
-<section id="beirut-explosion" class="level3">
-<h3 class="anchored" data-anchor-id="beirut-explosion"><strong>2020 Beirut Explosion:</strong></h3>
-<p>Lebanon faced a substantial decline in happiness due to the devastating explosion in Beirut, compounding existing economic and political crises.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/lebanon.png" class="img-fluid figure-img" width="521"></p>
-<figcaption class="figure-caption">Beirut Explosion effect on happiness rank</figcaption>
-</figure>
-</div>
-<p>The graph displays the trend in Lebanon’s happiness rank from 2015 to 2023. In 2020, there is a noticeable increase in Lebanon’s happiness rank, which indicates a decrease in happiness, coinciding with the Beirut explosion. This tragic event, along with ongoing economic and political issues, likely contributed to a sharp decline in the well-being and perceived happiness of the Lebanese population.</p>
-</section>
-<section id="myanmar-military-coup" class="level3">
-<h3 class="anchored" data-anchor-id="myanmar-military-coup"><strong>2021 Myanmar Military Coup:</strong></h3>
-<p>Led to political unrest and human rights issues in Myanmar, affecting the country’s overall happiness and stability.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/myanmar.png" class="img-fluid figure-img" width="512"></p>
-<figcaption class="figure-caption">Myanmar military coup affecting happiness rank</figcaption>
-</figure>
-</div>
-<p>In 2020-2021, Myanmar experienced a military coup that led to political unrest and widespread protests, which negatively impacted the country’s happiness rank due to increased instability and human rights issues.</p>
+<p>The graph indicates a general increase in happiness rank for most regions during the COVID-19 pandemic, suggesting a decline in happiness. Some regions show recovery post-pandemic, while others continue to experience lower happiness levels, with varying impacts across different parts of the world. india, china, Usa</p>
 </section>
 <section id="pakistan-floods" class="level3">
-<h3 class="anchored" data-anchor-id="pakistan-floods"><strong>2022 Pakistan Floods</strong>:</h3>
+<h3 class="anchored" data-anchor-id="pakistan-floods">2022 Pakistan Floods:</h3>
 <p>Heavy monsoon rains led to catastrophic flooding in Pakistan, causing massive displacement and damage to infrastructure and potentially affecting the happiness rank.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -663,7 +640,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In 2022, Pakistan experienced a significant increase in its happiness rank, signifying a decrease in happiness. This was likely influenced by catastrophic flooding caused by heavy monsoon rains, resulting in displacement and infrastructure damage, which typically lowers overall happiness.</p>
 </section>
 <section id="global-economic-slowdown" class="level3">
-<h3 class="anchored" data-anchor-id="global-economic-slowdown"><strong>2023 Global Economic Slowdown:</strong></h3>
+<h3 class="anchored" data-anchor-id="global-economic-slowdown">2023 Global Economic Slowdown:</h3>
 <p>Affecting various countries differently, but particularly impacting nations with less economic resilience, leading to increased unemployment and social discontent.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -673,9 +650,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Various countries across the world were impacted. Specifically, countries highly dependent on international trade and with less economic resilience might have experienced greater economic challenges. For instance, countries in Southeast Asia, Latin America, and parts of Africa could have been particularly affected due to disruptions in global supply chains and reduced economic activity. Based on the plot above, Afghanistan seems to be the most affected country.</p>
 <p>These events, among others, have played a crucial role in shaping the happiness and well-being of populations across different nations, reflecting the intricate relationship between global events and individual happiness.</p>
-
-
 </section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>The World Happiness Application is not just a tool for data exploration; it is a window into the diverse and dynamic nature of global well-being. It serves as a valuable resource for researchers, policymakers, educators, and anyone interested in the study of happiness. By offering user-driven, interactive data analysis, it empowers users to uncover the complex tapestry of factors that contribute to a happier and more fulfilling global society.</p>
+
+
 </section>
 </section>
 
