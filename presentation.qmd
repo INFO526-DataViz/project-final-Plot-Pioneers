@@ -85,9 +85,9 @@ data("penguins")
 
 ![](images/china,%20US%20trade%20war.png){fig-align="center" width="1195"}
 
-## 2022 Pakistan Floods:
+## 2022 Pakistan Floods
 
-![](images/pakistan.png){width="1500"}
+![](images/pakistan.png){fig-align="center" width="1195"}
 
 ## 2016 Brexit Vote
 

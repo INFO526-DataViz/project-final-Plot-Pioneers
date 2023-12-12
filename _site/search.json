@@ -263,14 +263,14 @@
     "href": "presentation.html#conclusion",
     "title": "World Happiness Report",
     "section": "Conclusion",
-    "text": "Conclusion"
+    "text": "Conclusion\nBased on the provided plots, here are the summarized points reflecting the impact of major events on global happiness:\n1. The COVID-19 pandemic caused a universal decline in happiness, reflected in the data as a noticeable dip for regions such as Eastern Asia and North America, due to health crises and economic downturns.\n2. Specific events like the US-China Trade War, Brexit, and natural disasters like the Pakistan floods had varied impacts on different regions’ happiness rankings, with some experiencing more pronounced fluctuations than others, such as the sharp changes in happiness rank for Pakistan around the time of the floods."
   },
   {
     "objectID": "presentation.html#pakistan-floods",
     "href": "presentation.html#pakistan-floods",
     "title": "World Happiness Report",
-    "section": "2022 Pakistan Floods:",
-    "text": "2022 Pakistan Floods:"
+    "section": "2022 Pakistan Floods",
+    "text": "2022 Pakistan Floods"
   },
   {
     "objectID": "presentation.html#brexit-vote",
@@ -284,6 +284,6 @@
     "href": "presentation.html#covid-19-pandemic",
     "title": "World Happiness Report",
     "section": "2019-2023 COVID-19 Pandemic",
-    "text": "2019-2023 COVID-19 Pandemic"
+    "text": "2019-2023 COVID-19 Pandemic\n\nCovid_19 affecting happiness rank"
   }
 ]
