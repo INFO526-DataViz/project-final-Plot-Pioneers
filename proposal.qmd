@@ -60,7 +60,7 @@ Multiple annual observations, varying from 149 to 158 countries per year.
 Common variables across dataset:
 
 | Variable name                     | data Type       | description                                                                                                                                                                                                  |
-|------------|------------|-------------------------------------------------|
+|---------------|---------------|-------------------------------------------|
 | **Country**                       | Character (chr) | The name of the country for which the happiness metrics are recorded.                                                                                                                                        |
 | **Happiness Rank**                | Integer (int)   | The rank of the country is based on its happiness score.                                                                                                                                                     |
 | **Happiness Score**               | Double (dbl)    | The score that quantifies the happiness level, is based on various factors such as GDP per capita, social support, life expectancy, freedom to make life choices, generosity, and perceptions of corruption. |
@@ -383,9 +383,9 @@ write.csv(happiness_all_years_df, file = "data/happiness_all_years_df.csv")
 
 ### Approach for Question 1
 
-The different factors involved are as follows : economy ("GDP per capita"), family ("social support"), health("healthy life expectancy at birth"), freedom ("freedom to make life choices"), trust("perceptions of corruption") and genorosity ("genorosity").
+The different factors involved are as follows : economy ("GDP per capita"), family ("social support"), health("healthy life expectancy at birth"), freedom ("freedom to make life choices"), trust("perceptions of corruption") and generosity ("generosity").
 
--   **Objective:** Enable users to interactively explore the impact of different variables on happiness scores using a customized interface. The app will feature three dropdown menus: one for selecting countries, one for the x-axis variable, and another for the y-axis variable.
+-   **Objective:** Enable users to interactively explore the impact of different variables on happiness scores using a customized interface. The app will feature three drop-down menus: one for selecting countries, one for the x-axis variable, and another for the y-axis variable.
 
 -   **Visualization:** The app will present a customizable scatter plot. Users can select specific years using buttons to display a single point on the graph. Hovering over each point will reveal detailed information about the chosen variables for that point.
 
