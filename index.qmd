@@ -2,7 +2,10 @@
 title: "World Happiness Report"
 subtitle: "A Journey through World Happiness:)"
 author: "Plot Pioneers - Athira, Priyarsha, Shalon, Chethana"
-format: html
+format: 
+  html:
+    code-tools: true
+    code-overflow: wrap
 editor: visual
 ---
 
@@ -12,7 +15,7 @@ This project focuses on developing an interactive Shiny application to transform
 
 ### Data Cleaning code:
 
-```{r include=FALSE, message=FALSE, warning=FALSE, results='hide',echo=FALSE}
+```{r data cleaning, message=FALSE, warning=FALSE, results='hide'}
 df_2015 <- read.csv("data/2015.csv")
 df_2016 <- read.csv("data/2016.csv")
 df_2017 <- read.csv("data/2017.csv")
@@ -330,7 +333,7 @@ str(happiness_all_years_df)
 
 ```
 
-```{r include=FALSE, message=FALSE, warning=FALSE, results='hide',echo=FALSE}
+```{r, message=FALSE, warning=FALSE, results='hide',echo=FALSE}
 # Load necessary libraries
 library(dplyr)
 
@@ -365,7 +368,7 @@ head(df_combined)
 write.csv(df_combined, 'data/updated_happiness_all_years.csv', row.names = FALSE)
 ```
 
-```{r include=FALSE, message=FALSE, warning=FALSE, results='hide',echo=FALSE}
+```{r, message=FALSE, warning=FALSE, results='hide',echo=FALSE}
 
 
 #2015
@@ -529,7 +532,7 @@ The heart of the app resides in the 'Plot' tab, where users can select any two f
 
 The Happiness Report examining six factors in the year 2019 as an example.
 
-```{r Package loadings, include=FALSE, message=FALSE, warning=FALSE, results='hide'}
+```{r Package loadings, message=FALSE, warning=FALSE, results='hide'}
 library(markdown)
 library(DT)
 library(ggplot2)
@@ -539,9 +542,11 @@ library(here)
 library(sf)
 library(rnaturalearth)
 library(rnaturalearthdata)
+library(grid)
+library(patchwork)
 ```
 
-```{r Data loading, include=FALSE, message=FALSE, warning=FALSE, results='hide'}
+```{r Data loading, message=FALSE, warning=FALSE, results='hide', include=FALSE}
 happiness2015 <- read.csv(here("data", "happiness_2015_clean.csv"), stringsAsFactors = TRUE)
 happiness2016 <- read.csv(here("data", "happiness_2016_clean.csv"), stringsAsFactors = TRUE)
 happiness2017 <- read.csv(here("data", "happiness_2017_clean.csv"), stringsAsFactors = TRUE)
@@ -555,13 +560,13 @@ world <- ne_countries(scale = "medium", returnclass = "sf")
 countries_all <- read.csv(here("data", "countries_aggregated.csv"), stringsAsFactors = TRUE)
 ```
 
-```{r Scatter Plot, include=FALSE, message=FALSE, warning=FALSE, results='hide'}
-ggplot(filtered_data) +
-      geom_point(aes_string(x = input$variable_2, y = input$variable_1, 
-                            colour = "Region", label = "Country"), size = 3) +
-      geom_smooth(aes_string(x = input$variable_2, y = input$variable_1), 
+```{r Scatter Plot, message=FALSE, warning=FALSE, results='hide'}
+ggplot(data = happiness2015) +
+      geom_point(aes(x = Economy, y = Happiness.Score, 
+                            colour = Region, label = Country), size = 3) +
+      geom_smooth(aes(x = Economy, y = Happiness.Score), 
                   method = "lm", color = "black", se = FALSE) +
-      ggtitle(paste0(input$variable_1, " vs. ", input$variable_2)) +
+      ggtitle("Economy vs Happiness Score") +
       theme_bw() +
       theme(legend.position = "bottom")
 ```
@@ -594,14 +599,35 @@ From 2015 to 2023, a series of major global events significantly impacted the ha
 
 ## Major Events Affecting Happiness Scores (2015-2023):
 
-```{r Trend Time Series Plot, include=FALSE, message=FALSE, warning=FALSE, results='hide'}
+```{r Data Manipulations, message=FALSE, warning=FALSE, results='hide'}
+covid_years_data <- bind_rows(
+    happiness2015 %>% mutate(Year = 2015),
+    happiness2016 %>% mutate(Year = 2016),
+    happiness2017 %>% mutate(Year = 2017),
+    happiness2018%>% mutate(Year = 2018),
+    happiness2019%>% mutate(Year = 2019),
+    happiness2020 %>% mutate(Year = 2020),
+    happiness2021 %>% mutate(Year = 2021),
+    happiness2022 %>% mutate(Year = 2022),
+    happiness2023 %>% mutate(Year = 2023)
+  )
+
+filtered_covid_data <- covid_years_data %>%
+      filter(Country %in% c("India", "China", "United States")) %>%
+      arrange(Year, Country) %>%
+      group_by(Year) %>%
+      #slice_head(n = input$num_countries) %>%
+      ungroup()
+```
+
+```{r Trend Time Series Plot, message=FALSE, warning=FALSE, results='hide'}
 plot_ly(data = filtered_covid_data, x = ~Year, y = ~Happiness.Rank, 
         color = ~Region, type = 'scatter', mode = 'lines+markers', 
         hoverinfo = 'text',
         text = ~paste("Country:", Country, "<br>Year:", 
                       Year, "<br>Happiness Rank:", 
-                      Happiness.Rank, Emoji)) %>%
-  layout(title = list(text = plot_title),
+                      Happiness.Rank)) %>%
+  layout(title = list(text = "Happiness Rank Trends"),
          margin = list(t = 50),
          xaxis = list(title = 'Year', tickvals = c('2015','2016',
                                                    '2017','2018',
@@ -651,15 +677,45 @@ In 2022, Pakistan experienced a significant increase in its happiness rank, sign
 
 ### World Heatmap:
 
-```{r}
-ggplot(data = ggplot_data) +
-      geom_sf(aes(fill = Happiness.Score, geometry = geometry, text = paste("Country:", name, "<br>Happiness Score:", Happiness.Score, "<br>Happiness Rank:", Happiness.Rank,"<br>", Emoji)), color = NA) + 
+```{r Heatmap, message=FALSE, warning=FALSE, results='hide'}
+world <- world %>% 
+      left_join(happiness2015, by = c("name" = "Country"))
+
+ggplot(data = world) +
+      geom_sf(aes(fill = Happiness.Score, geometry = geometry), color = NA) + 
       scale_fill_viridis_c() +
       theme_minimal() +
-      labs(fill = "Happiness Score", title = paste("World Happiness Map", data_year$year))
+      labs(fill = "Happiness Score", title = "World Happiness Map 2015")
 ```
 
-![](images/Heatmap.png){width="1144"}
+### Trend Comparison:
+
+```{r Data Filtering, message=FALSE, warning=FALSE, results='hide'}
+filtered_trend <- covid_years_data |> 
+  filter(Country %in% c("India", "China", "United States"))
+```
+
+```{r Trend Comparison, message=FALSE, warning=FALSE, results='hide'}
+p <- ggplot(filtered_trend, aes(x = Year, y = Economy, color = Country)) +
+      geom_line() +
+      geom_point() +
+      scale_x_continuous(breaks = unique(filtered_trend$Year)) +
+      theme_minimal() +
+      #theme(legend.position = "none") +
+      labs(title = "Time Series Plot of Economy")
+
+q <- ggplot(filtered_trend, aes(x = Year, y = Happiness.Score, 
+                                color = Country)) +
+      geom_line() +
+      geom_point() +
+      scale_x_continuous(breaks = unique(filtered_trend$Year)) + 
+      theme_minimal() + 
+      #theme(legend.position = "none") +
+      labs(title = "Time Series of Happiness Score")
+
+(p|q) + plot_layout(guides = "collect") &
+  theme(legend.position = "bottom")
+```
 
 ## Conclusion
 
