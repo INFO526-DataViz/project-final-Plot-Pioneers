@@ -1,7 +1,7 @@
 ---
 title: "World Happiness Report"
 subtitle: "A Journey through World Happiness:)"
-author: "Plot Pioneers"
+author: "Plot Pioneers - Athira, Priyarsha, Shalon, Chethana"
 format: html
 editor: visual
 ---
@@ -10,7 +10,9 @@ editor: visual
 
 This project focuses on developing an interactive Shiny application to transform the intricate data from the World Happiness Report into an accessible and engaging platform for a diverse audience. While the report offers valuable insights into the happiness and well-being of individuals across countries, the complexity of the data often poses challenges in interpretation. Our objective is to simplify this process by creating an intuitive and user-friendly app that dynamically visualizes the data. The driving force behind our initiative is to bridge the gap between the richness of complex data and end-users seeking comprehension.
 
-```{r echo=FALSE, results='hide',include=FALSE}
+### Data Cleaning code:
+
+```{r include=FALSE, message=FALSE, warning=FALSE, results='hide',echo=FALSE}
 df_2015 <- read.csv("data/2015.csv")
 df_2016 <- read.csv("data/2016.csv")
 df_2017 <- read.csv("data/2017.csv")
@@ -328,7 +330,7 @@ str(happiness_all_years_df)
 
 ```
 
-```{r echo=FALSE, results='hide',include=FALSE}
+```{r include=FALSE, message=FALSE, warning=FALSE, results='hide',echo=FALSE}
 # Load necessary libraries
 library(dplyr)
 
@@ -363,7 +365,7 @@ head(df_combined)
 write.csv(df_combined, 'data/updated_happiness_all_years.csv', row.names = FALSE)
 ```
 
-```{r echo=FALSE, results='hide',include=FALSE}
+```{r include=FALSE, message=FALSE, warning=FALSE, results='hide',echo=FALSE}
 
 
 #2015
@@ -527,6 +529,43 @@ The heart of the app resides in the 'Plot' tab, where users can select any two f
 
 The Happiness Report examining six factors in the year 2019 as an example.
 
+```{r Package loadings}
+library(markdown)
+library(DT)
+library(ggplot2)
+library(dplyr)
+library(plotly)
+library(here)
+library(sf)
+library(rnaturalearth)
+library(rnaturalearthdata)
+```
+
+```{r Data loading}
+happiness2015 <- read.csv(here("data", "happiness_2015_clean.csv"), stringsAsFactors = TRUE)
+happiness2016 <- read.csv(here("data", "happiness_2016_clean.csv"), stringsAsFactors = TRUE)
+happiness2017 <- read.csv(here("data", "happiness_2017_clean.csv"), stringsAsFactors = TRUE)
+happiness2018 <- read.csv(here("data", "happiness_2018_clean.csv"), stringsAsFactors = TRUE)
+happiness2019 <- read.csv(here("data", "happiness_2019_clean.csv"), stringsAsFactors = TRUE)
+happiness2020 <- read.csv(here("data", "happiness_2020_clean.csv"), stringsAsFactors = TRUE)
+happiness2021 <- read.csv(here("data", "happiness_2021_clean.csv"), stringsAsFactors = TRUE)
+happiness2022 <- read.csv(here("data", "happiness_2022_clean.csv"), stringsAsFactors = TRUE)
+happiness2023 <- read.csv(here("data", "happiness_2023_clean.csv"), stringsAsFactors = TRUE)
+world <- ne_countries(scale = "medium", returnclass = "sf")
+countries_all <- read.csv(here("data", "countries_aggregated.csv"), stringsAsFactors = TRUE)
+```
+
+```{r Scatter Plot, include=FALSE, message=FALSE, warning=FALSE, results='hide'}
+ggplot(filtered_data) +
+      geom_point(aes_string(x = input$variable_2, y = input$variable_1, 
+                            colour = "Region", label = "Country"), size = 3) +
+      geom_smooth(aes_string(x = input$variable_2, y = input$variable_1), 
+                  method = "lm", color = "black", se = FALSE) +
+      ggtitle(paste0(input$variable_1, " vs. ", input$variable_2)) +
+      theme_bw() +
+      theme(legend.position = "bottom")
+```
+
 ![](images/family.png){width="1159"}
 
 ![](images/economy.png){width="1155"}
@@ -554,6 +593,27 @@ Upon analyzing the relationship between happiness scores and freedom, it's evide
 From 2015 to 2023, a series of major global events significantly impacted the happiness scores of various countries. These events, ranging from economic crises to geopolitical conflicts and health emergencies, have caused notable fluctuations in global happiness levels. In this brief introduction, we will list some of these key events and identify the countries most affected by them.
 
 ## Major Events Affecting Happiness Scores (2015-2023):
+
+```{r Trend Time Series Plot, include=FALSE, message=FALSE, warning=FALSE, results='hide'}
+plot_ly(data = filtered_covid_data, x = ~Year, y = ~Happiness.Rank, 
+        color = ~Region, type = 'scatter', mode = 'lines+markers', 
+        hoverinfo = 'text',
+        text = ~paste("Country:", Country, "<br>Year:", 
+                      Year, "<br>Happiness Rank:", 
+                      Happiness.Rank, Emoji)) %>%
+  layout(title = list(text = plot_title),
+         margin = list(t = 50),
+         xaxis = list(title = 'Year', tickvals = c('2015','2016',
+                                                   '2017','2018',
+                                                   '2019','2020', 
+                                                   '2021', '2022', 
+                                                   '2023'),
+                      ticktext = c('2015','2016','2017',
+                                   '2018','2019','2020', 
+                                   '2021', '2022', '2023')),
+         yaxis = list(title = 'Happiness Score'),
+         hovermode = 'closest')
+```
 
 ### 2016 Brexit Vote:
 
@@ -587,6 +647,20 @@ Heavy monsoon rains led to catastrophic flooding in Pakistan, causing massive di
 
 In 2022, Pakistan experienced a significant increase in its happiness rank, signifying a decrease in happiness. This was likely influenced by catastrophic flooding caused by heavy monsoon rains, resulting in displacement and infrastructure damage, which typically lowers overall happiness.
 
+## Miscellaneous Plots:
+
+### World Heatmap:
+
+```{r}
+ggplot(data = ggplot_data) +
+      geom_sf(aes(fill = Happiness.Score, geometry = geometry, text = paste("Country:", name, "<br>Happiness Score:", Happiness.Score, "<br>Happiness Rank:", Happiness.Rank,"<br>", Emoji)), color = NA) + 
+      scale_fill_viridis_c() +
+      theme_minimal() +
+      labs(fill = "Happiness Score", title = paste("World Happiness Map", data_year$year))
+```
+
+![](images/Heatmap.png){width="1144"}
+
 ## Conclusion
 
-The World Happiness Application is not just a tool for data exploration; it is a window into the diverse and dynamic nature of global well-being. It serves as a valuable resource for researchers, policymakers, educators, and anyone interested in the study of happiness. By offering user-driven, interactive data analysis, it empowers users to uncover the complex tapestry of factors that contribute to a happier and more fulfilling global society.
+This World Happiness Shiny Application is not just a tool for data exploration, it is a window into the diverse and dynamic nature of global well-being. It serves as a valuable resource for researchers, policymakers, educators, and anyone interested in the study of happiness. By offering user-driven, interactive data analysis, it empowers users to uncover the complex tapestry of factors that contribute to a happier and more fulfilling global society.
