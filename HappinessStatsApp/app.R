@@ -68,7 +68,7 @@ ui <- navbarPage(
            ),
            mainPanel(
              tabsetPanel(
-               tabPanel("Plot",
+               tabPanel("Scatter Plot",
                         br(),
                         h2(textOutput("year_name_plot")),
                         plotlyOutput("scatterplot", height = 800)
