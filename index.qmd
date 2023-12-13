@@ -529,7 +529,7 @@ The heart of the app resides in the 'Plot' tab, where users can select any two f
 
 The Happiness Report examining six factors in the year 2019 as an example.
 
-```{r Package loadings}
+```{r Package loadings, include=FALSE, message=FALSE, warning=FALSE, results='hide'}
 library(markdown)
 library(DT)
 library(ggplot2)
@@ -541,7 +541,7 @@ library(rnaturalearth)
 library(rnaturalearthdata)
 ```
 
-```{r Data loading}
+```{r Data loading, include=FALSE, message=FALSE, warning=FALSE, results='hide'}
 happiness2015 <- read.csv(here("data", "happiness_2015_clean.csv"), stringsAsFactors = TRUE)
 happiness2016 <- read.csv(here("data", "happiness_2016_clean.csv"), stringsAsFactors = TRUE)
 happiness2017 <- read.csv(here("data", "happiness_2017_clean.csv"), stringsAsFactors = TRUE)
